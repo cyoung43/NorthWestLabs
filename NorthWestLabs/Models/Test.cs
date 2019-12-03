@@ -15,9 +15,6 @@ namespace NorthWestLabs.Models
         [Display(Name ="Test ID")]
         public int TestID { get; set; }
 
-        [Display(Name ="Test Result")]
-        public bool TestResult { get; set; }
-
         [Required]
         [Display(Name ="Test Tube Number")]
         public int TestTubeNum { get; set; }
@@ -32,6 +29,6 @@ namespace NorthWestLabs.Models
 
         [DataType(DataType.Upload)]
         [DisplayName("Results")]
-        public HttpPostedFileBase File { get; set; }
+        public string TestResult { get; set; }
     }
 }
