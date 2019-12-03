@@ -12,9 +12,12 @@ namespace NorthWestLabs.Models
     {
         [Key]
         [Display(Name ="Test ID")]
+        [Column(Order = 1)]
         public int TestID { get; set; }
+
         [Key]
         [Display(Name ="Employee ID")]
+        [Column(Order = 2)]
         public int EmpID { get; set; }
 
         [Required]
