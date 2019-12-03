@@ -8,7 +8,7 @@ using System.Web;
 namespace NorthWestLabs.Models
 {
     [Table("Test_Has_Employee")]
-    public class Assay_Has_Employee
+    public class Test_Has_Employee
     {
         [Key]
         [Display(Name ="Assay ID")]

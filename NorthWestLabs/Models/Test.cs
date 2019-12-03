@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
@@ -14,9 +15,6 @@ namespace NorthWestLabs.Models
         [Display(Name ="Test ID")]
         public int TestID { get; set; }
 
-        [Display(Name ="Test Result")]
-        public bool TestResult { get; set; }
-
         [Required]
         [Display(Name ="Test Tube Number")]
         public int TestTubeNum { get; set; }
@@ -28,5 +26,9 @@ namespace NorthWestLabs.Models
         [Required]
         [Display(Name ="Assay ID")]
         public int AssayID { get; set; }
+
+        [DataType(DataType.Upload)]
+        [DisplayName("Results")]
+        public string TestResult { get; set; }
     }
 }

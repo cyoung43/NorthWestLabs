@@ -100,20 +100,23 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="DAL\NorthWestLabsContext.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Assay.cs" />
+    <Compile Include="Models\Assay_Has_TestType.cs" />
     <Compile Include="Models\Bank.cs" />
     <Compile Include="Models\Client.cs" />
     <Compile Include="Models\Compound.cs" />
-    <Compile Include="Models\Compound_Has_Assay.cs" />
+    <Compile Include="Models\CompoundType.cs" />
     <Compile Include="Models\Discount.cs" />
     <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\EmployeeType.cs" />
     <Compile Include="Models\Material.cs" />
     <Compile Include="Models\Test.cs" />
-    <Compile Include="Models\Assay_Has_Employee.cs" />
+    <Compile Include="Models\TestType.cs" />
+    <Compile Include="Models\Test_Has_Employee.cs" />
     <Compile Include="Models\Test_Has_Material.cs" />
     <Compile Include="Models\WorkOrder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

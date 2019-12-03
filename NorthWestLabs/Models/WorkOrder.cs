@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
@@ -33,6 +34,9 @@ namespace NorthWestLabs.Models
         [Required]
         [Display(Name ="Received By")]
         public int ReceivedBy { get; set; }
+
+        [DisplayName("Work Order Result")]
+        public string WOResult { get; set; }
 
         [Required]
         [Display(Name ="Client ID")]

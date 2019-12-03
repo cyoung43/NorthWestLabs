@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
@@ -25,6 +26,11 @@ namespace NorthWestLabs.Models
         [Required]
         [Display(Name = "Employee Wage")]
         public float EmpWage { get; set; }
+
+        [Required]
+        [DisplayName("Employee Password")]
+        [StringLength(15)]
+        public string EmpPassword { get; set; }
 
         //Employee type
         [Required]
