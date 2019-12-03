@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
@@ -9,9 +11,19 @@ namespace NorthWestLabs.Models
     public class Employee
     {
         [Key]
+        [Display(Name ="Employee ID")]
         public int EmpID { get; set; }
+
+        [Required]
+        [Display(Name = "Employee First Name")]
         public string EmpFName { get; set; }
+
+        [Required]
+        [Display(Name = "Employee Last Name")]
         public string EmpLName { get; set; }
+
+        [Required]
+        [Display(Name = "Employee Wage")]
         public float EmpWage { get; set; }
     }
 }
