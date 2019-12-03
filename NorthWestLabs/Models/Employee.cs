@@ -25,5 +25,7 @@ namespace NorthWestLabs.Models
         [Required]
         [Display(Name = "Employee Wage")]
         public float EmpWage { get; set; }
+
+        //Employee type
     }
 }
