@@ -64,10 +64,6 @@ namespace NorthWestLabs.Models
         //This field will have things such as active, unconfirmed, etc.
         [Required]
         [Display(Name ="Client Status")]
-        public string ClStatus { get; set; }
-
-        [Required]
-        [DisplayName("Client Status")]
         [StringLength(10)]
         public string ClStatus { get; set; }
 
