@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
@@ -28,5 +29,9 @@ namespace NorthWestLabs.Models
         [Required]
         [Display(Name ="Assay ID")]
         public int AssayID { get; set; }
+
+        [DataType(DataType.Upload)]
+        [DisplayName("Results")]
+        public HttpPostedFileBase File { get; set; }
     }
 }
