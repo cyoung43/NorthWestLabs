@@ -110,6 +110,7 @@
     <Compile Include="Models\Compound_Has_Assay.cs" />
     <Compile Include="Models\Discount.cs" />
     <Compile Include="Models\Employee.cs" />
+    <Compile Include="Models\EmployeeType.cs" />
     <Compile Include="Models\Material.cs" />
     <Compile Include="Models\Test.cs" />
     <Compile Include="Models\Assay_Has_Employee.cs" />

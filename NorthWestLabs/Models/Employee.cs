@@ -27,5 +27,8 @@ namespace NorthWestLabs.Models
         public float EmpWage { get; set; }
 
         //Employee type
+        [Required]
+        [Display(Name="Employee Type")]
+        public int EmpType { get; set; }
     }
 }
