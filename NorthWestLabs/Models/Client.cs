@@ -51,6 +51,11 @@ namespace NorthWestLabs.Models
         [Display(Name = "Password")]
         private string Password { get; set; }
 
+        //This field will have things such as active, unconfirmed, etc.
+        [Required]
+        [Display(Name ="Client Status")]
+        public string ClStatus { get; set; }
+
         [Required]
         [Display(Name = "Bank ID")]
         public int BankID { get; set; }

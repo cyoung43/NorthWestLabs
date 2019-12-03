@@ -14,13 +14,15 @@ namespace NorthWestLabs.Models
         [Display(Name ="Test ID")]
         public int TestID { get; set; }
 
-        [Required]
-        [Display(Name ="Test Name")]
-        public string TestName { get; set; }
+        [Display(Name ="Test Result")]
+        public bool TestResult { get; set; }
 
-        //Look back through pricing stuff... I think I needed to do something else with it but I don't remember
         [Required]
-        [Display(Name = "Base Price")]
-        public float BasePrice { get; set; }
+        [Display(Name ="Test Tube Number")]
+        public int TestTubeNum { get; set; }
+
+        [Required]
+        [Display(Name ="Assay ID")]
+        public int AssayID { get; set; }
     }
 }

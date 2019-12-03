@@ -8,11 +8,11 @@ using System.Web;
 namespace NorthWestLabs.Models
 {
     [Table("Test_Has_Employee")]
-    public class Test_Has_Employee
+    public class Assay_Has_Employee
     {
         [Key]
-        [Display(Name ="Test ID")]
-        public int TestID { get; set; }
+        [Display(Name ="Assay ID")]
+        public int AssayID { get; set; }
         [Key]
         [Display(Name ="Employee ID")]
         public int EmpID { get; set; }
