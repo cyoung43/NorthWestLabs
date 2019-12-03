@@ -11,9 +11,11 @@ namespace NorthWestLabs.Models
     public class Assay_Has_TestType
     {
         [Key]
+        [Column(Order = 1)]
         public int AssayID { get; set; }
 
         [Key]
+        [Column(Order = 2)]
         public int TestTypeID { get; set; }
     }
 }

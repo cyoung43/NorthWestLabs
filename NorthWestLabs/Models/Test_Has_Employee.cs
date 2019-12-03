@@ -11,10 +11,13 @@ namespace NorthWestLabs.Models
     public class Test_Has_Employee
     {
         [Key]
-        [Display(Name ="Assay ID")]
-        public int AssayID { get; set; }
+        [Display(Name ="Test ID")]
+        [Column(Order = 1)]
+        public int TestID { get; set; }
+
         [Key]
         [Display(Name ="Employee ID")]
+        [Column(Order = 2)]
         public int EmpID { get; set; }
 
         [Required]
