@@ -22,6 +22,10 @@ namespace NorthWestLabs.Models
         public int TestTubeNum { get; set; }
 
         [Required]
+        [Display(Name = "Sequence Code")]
+        public int SequenceCode { get; set; }
+
+        [Required]
         [Display(Name ="Assay ID")]
         public int AssayID { get; set; }
     }

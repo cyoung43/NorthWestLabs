@@ -19,10 +19,6 @@ namespace NorthWestLabs.Models
         public int AssayID { get; set; }
 
         [Required]
-        [Display(Name = "Sequence Code")]
-        public int SequenceCode { get; set; }
-
-        [Required]
         [Display(Name = "Assay Date")]
         [DataType(DataType.Date), DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}", ApplyFormatInEditMode = true)]
         public DateTime AssayDate { get; set; }
