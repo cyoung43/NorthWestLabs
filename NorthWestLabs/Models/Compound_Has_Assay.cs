@@ -12,8 +12,7 @@ namespace NorthWestLabs.Models
     {
         [Key]
         [Display(Name = "LT Number")]
-        [StringLength(6, ErrorMessage = "LT Number Must be 6 characters long", MinimumLength =6)]
-        public string LTNumber { get; set; }
+        public int LTNumber { get; set; }
 
         [Required]
         [Display(Name = "Assay ID")]

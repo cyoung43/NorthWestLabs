@@ -12,9 +12,8 @@ namespace NorthWestLabs.Models
     {
 
         [Key]
-        [StringLength(6, ErrorMessage = "LT Number Must be 6 characters long")]
         [Display(Name = "LT Number")]
-        public string LTNumber { get; set; }
+        public int LTNumber { get; set; }
 
         [Required]
         [Display(Name = "Compound Name")]
