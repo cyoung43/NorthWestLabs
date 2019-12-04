@@ -13,11 +13,20 @@ namespace NorthWestLabs.Controllers
 {
     public class SeattleController : Controller
     {
+        public static List<ClientStatus> ClientStatus = new List<ClientStatus>()
+            {
+                new ClientStatus{statusCode = "A", statusDesc = "Active"},
+                new ClientStatus{statusCode = "U", statusDesc = "New Client"}
+            };
+
         private NorthWestLabsContext db = new NorthWestLabsContext();
 
         // GET: Seattle
         public ActionResult Index()
         {
+            ViewBag.Banks = db.Banks.ToList();
+            ViewBag.Discounts = db.Discounts.ToList();
+            ViewBag.Status = ClientStatus;
             return View(db.Clients.ToList());
         }
 
@@ -39,6 +48,10 @@ namespace NorthWestLabs.Controllers
         // GET: Seattle/Create
         public ActionResult Create()
         {
+            ViewBag.Banks = db.Banks.ToList();
+            ViewBag.Discounts = db.Discounts.ToList();
+            ViewBag.Discounts = db.Discounts.ToList();
+            ViewBag.Status = ClientStatus;
             return View();
         }
 
@@ -49,10 +62,16 @@ namespace NorthWestLabs.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "ClientID,ClFName,ClLName,CompanyName,ClAddress1,ClAddress2,ClEmail,ClPhone,BankAccouNum,ClStatus,BankID,DisID")] Client client)
         {
+            ViewBag.Banks = db.Banks.ToList();
+            ViewBag.Discounts = db.Discounts.ToList();
+            ViewBag.Discounts = db.Discounts.ToList();
+            ViewBag.Status = ClientStatus;
+
             if (ModelState.IsValid)
             {
                 db.Clients.Add(client);
                 db.SaveChanges();
+
                 return RedirectToAction("Index");
             }
 

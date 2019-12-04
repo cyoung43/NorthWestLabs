@@ -131,6 +131,7 @@
     <Compile Include="Models\Assay_Has_TestType.cs" />
     <Compile Include="Models\Bank.cs" />
     <Compile Include="Models\Client.cs" />
+    <Compile Include="Models\ClientStatus.cs" />
     <Compile Include="Models\Compound.cs" />
     <Compile Include="Models\CompoundType.cs" />
     <Compile Include="Models\Discount.cs" />

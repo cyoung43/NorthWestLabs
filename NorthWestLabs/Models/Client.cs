@@ -59,7 +59,8 @@ namespace NorthWestLabs.Models
         [Required]
         [Display(Name = "Password")]
         [StringLength(60)]
-        private string Password { get; set; }
+        [PasswordPropertyText]
+        public string Password { get; set; }
 
         //This field will have things such as active, unconfirmed, etc.
         [Required]
@@ -68,11 +69,11 @@ namespace NorthWestLabs.Models
         public string ClStatus { get; set; }
 
         [Required]
-        [Display(Name = "Bank ID")]
+        [Display(Name = "Bank Name")]
         public int BankID { get; set; }
 
         [Required]
-        [Display(Name = "Discount ID")]
+        [Display(Name = "Discount Name")]
         public int DisID { get; set; }
     }
 }
