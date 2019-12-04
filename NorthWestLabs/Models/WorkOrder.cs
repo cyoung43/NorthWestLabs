@@ -9,7 +9,6 @@ using System.Web.Mvc;
 
 namespace NorthWestLabs.Models
 {
-    [Authorize]
     [Table("WorkOrders")]
     public class WorkOrder
     {
