@@ -1,0 +1,18 @@
+﻿@model NorthWestLabs.Models.Client
+
+@{
+    ViewBag.Title = "LogInClient";
+}
+
+<h2>LogInClient</h2>
+
+@using (Html.BeginForm("Login", "Home", FormMethod.Post))
+{
+    <label for="inputEmail">Email address</label>
+    @Html.TextBox("Email address")
+    <br /><br />
+    <label for="inputPassword">Password</label>
+    @Html.Password("Password")
+    <br /><br />
+    <button type="submit">Login</button>
+}
