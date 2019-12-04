@@ -127,7 +127,7 @@ namespace NorthWestLabs.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ClientID,ClFName,ClLName,CompanyName,ClAddress1,ClAddress2,ClEmail,ClPhone,BankAccouNum,ClStatus,BankID,DisID")] Client client)
+        public ActionResult Edit([Bind(Include = "ClientID,ClFName,ClLName,CompanyName,ClAddress1,ClAddress2,ClEmail,ClPhone,BankAccouNum,Password,ClStatus,BankID,DisID")] Client client)
         {
             //set up viewbags for editing client
             ViewBag.Banks = db.Banks.ToList();
@@ -229,7 +229,7 @@ namespace NorthWestLabs.Controllers
                 db.WorkOrders.Add(workOrder);
                 db.SaveChanges();
 
-                return RedirectToAction("Index");
+                return RedirectToAction("WorkIndex");
             }
 
             return View(workOrder);
@@ -238,7 +238,6 @@ namespace NorthWestLabs.Controllers
         // GET: Seattle/Edit/5
         public ActionResult WorkOrderEdit(int? id)
         {
-            //set up viewbags for clients
             ViewBag.Clients = db.Clients.ToList();
             ViewBag.Summary = testStatus;
             ViewBag.Employees = db.Employees.ToList();
@@ -260,9 +259,8 @@ namespace NorthWestLabs.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult WorkOrderEdit([Bind(Include = "WrkOrderID,ReceivedDate,DueDate,RushOrder,Comments,WOReport,ReceivedBy,ClientID,SummaryStatus")] WorkOrder workOrder)
+        public ActionResult WorkOrderEdit([Bind(Include = "WrkOrdID,ReceivedDate,DueDate,RushedOrder,Comments,WOReport,ReceivedBy,ClientID,SummaryStatus")] WorkOrder workOrder)
         {
-            //set up viewbags for editing client
             ViewBag.Clients = db.Clients.ToList();
             ViewBag.Summary = testStatus;
             ViewBag.Employees = db.Employees.ToList();
@@ -271,7 +269,7 @@ namespace NorthWestLabs.Controllers
             {
                 db.Entry(workOrder).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("WorkIndex");
             }
             return View(workOrder);
         }
@@ -299,7 +297,7 @@ namespace NorthWestLabs.Controllers
             WorkOrder workOrder = db.WorkOrders.Find(id);
             db.WorkOrders.Remove(workOrder);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("WorkIndex");
         }
 
          /*
@@ -389,7 +387,7 @@ namespace NorthWestLabs.Controllers
             {
                 db.Entry(employee).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("EmployeeIndex");
             }
             return View(employee);
         }
