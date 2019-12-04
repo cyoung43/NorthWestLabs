@@ -67,12 +67,13 @@ namespace NorthWestLabs.Models
         [StringLength(10)]
         public string ClStatus { get; set; }
 
-        [Required]
+
         [Display(Name = "Bank Name")]
         public int BankID { get; set; }
 
-        [Required]
+
         [Display(Name = "Discount Name")]
         public int DisID { get; set; }
+
     }
 }

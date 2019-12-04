@@ -167,18 +167,21 @@
     <Content Include="Views\Clients\Delete.cshtml" />
     <Content Include="Views\Clients\Details.cshtml" />
     <Content Include="Views\Clients\Edit.cshtml" />
-    <Content Include="Views\Clients\Index.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\Pricing.cshtml" />
-    <Content Include="Views\Home\Login.cshtml" />
-    <Content Include="Views\Home\CreateProfile.cshtml" />
-    <Content Include="Views\Home\LogInClient.cshtml" />
+    <Content Include="Views\Home\ClLogin.cshtml" />
     <Content Include="Views\Seattle\WorkOrderDelete.cshtml" />
     <Content Include="Views\Seattle\WorkOrderEdit.cshtml" />
     <Content Include="Views\Seattle\WorkOrderCreate.cshtml" />
     <Content Include="Views\Seattle\WorkOrderDetails.cshtml" />
     <Content Include="Views\Seattle\WorkIndex.cshtml" />
+    <Content Include="Views\Clients\Index.cshtml" />
+    <Content Include="Views\Home\ViewClients.cshtml" />
+    <Content Include="Views\Home\CreateProfile.cshtml" />
+    <Content Include="Views\Home\ListEmps.cshtml" />
+    <Content Include="Views\Home\CreateEmployee.cshtml" />
+    <Content Include="Views\Home\EmpLogin.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

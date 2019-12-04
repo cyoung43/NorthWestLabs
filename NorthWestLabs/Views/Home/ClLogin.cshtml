@@ -4,9 +4,9 @@
     ViewBag.Title = "LogInClient";
 }
 
-<h2>LogInClient</h2>
+<h2>Client Log In</h2>
 
-@using (Html.BeginForm("Login", "Home", FormMethod.Post))
+@using (Html.BeginForm("ClLogin", "Home", FormMethod.Post))
 {
     <label for="inputEmail">Email address</label>
     @Html.TextBox("Email address")
