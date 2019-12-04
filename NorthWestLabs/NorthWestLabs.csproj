@@ -140,6 +140,7 @@
     <Compile Include="Models\EmployeeType.cs" />
     <Compile Include="Models\Material.cs" />
     <Compile Include="Models\Test.cs" />
+    <Compile Include="Models\TestStatus.cs" />
     <Compile Include="Models\TestType.cs" />
     <Compile Include="Models\Test_Has_Employee.cs" />
     <Compile Include="Models\Test_Has_Material.cs" />
@@ -172,6 +173,12 @@
     <Content Include="Views\Home\Pricing.cshtml" />
     <Content Include="Views\Home\Login.cshtml" />
     <Content Include="Views\Home\CreateProfile.cshtml" />
+    <Content Include="Views\Home\LogInClient.cshtml" />
+    <Content Include="Views\Seattle\WorkOrderDelete.cshtml" />
+    <Content Include="Views\Seattle\WorkOrderEdit.cshtml" />
+    <Content Include="Views\Seattle\WorkOrderCreate.cshtml" />
+    <Content Include="Views\Seattle\WorkOrderDetails.cshtml" />
+    <Content Include="Views\Seattle\WorkIndex.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

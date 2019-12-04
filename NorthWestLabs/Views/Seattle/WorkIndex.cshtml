@@ -1,0 +1,75 @@
+﻿@model IEnumerable<NorthWestLabs.Models.WorkOrder>
+
+@{
+    ViewBag.Title = "WorkIndex";
+}
+
+<h2>WorkIndex</h2>
+
+<p>
+    @Html.ActionLink("Create New", "WorkOrderCreate")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ReceivedDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DueDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RushOrder)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.comments)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ReceivedBy)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.WOReport)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ClientID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SummaryStatus)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ReceivedDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DueDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RushOrder)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.comments)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ReceivedBy)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.WOReport)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ClientID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SummaryStatus)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "WorkOrderEdit", new { id=item.WrkOrdID }) |
+            @Html.ActionLink("Details", "WorkOrderDetails", new { id=item.WrkOrdID }) |
+            @Html.ActionLink("Delete", "WorkOrderDelete", new { id=item.WrkOrdID })
+        </td>
+    </tr>
+}
+
+</table>

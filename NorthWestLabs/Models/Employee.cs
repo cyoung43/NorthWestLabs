@@ -30,6 +30,7 @@ namespace NorthWestLabs.Models
         [Required]
         [DisplayName("Employee Password")]
         [StringLength(15)]
+        [PasswordPropertyText]
         public string EmpPassword { get; set; }
 
         //Employee type

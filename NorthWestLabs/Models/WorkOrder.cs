@@ -5,9 +5,11 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace NorthWestLabs.Models
 {
+    [Authorize]
     [Table("WorkOrders")]
     public class WorkOrder
     {
@@ -17,10 +19,12 @@ namespace NorthWestLabs.Models
 
         [Required]
         [Display(Name = "Date Received")]
+        [DataType("Date")]
         public DateTime ReceivedDate { get; set; }
 
         [Required]
         [Display(Name ="Date Due")]
+        [DataType("Date")]
         public DateTime DueDate { get; set; }
 
         [Required]
@@ -35,11 +39,14 @@ namespace NorthWestLabs.Models
         [Display(Name ="Received By")]
         public int ReceivedBy { get; set; }
 
-        [DisplayName("Work Order Result")]
-        public string WOResult { get; set; }
+        [DisplayName("Work Order Report")]
+        public string WOReport { get; set; }
 
         [Required]
         [Display(Name ="Client ID")]
         public int ClientID { get; set; }
+
+        [DisplayName("Summary Status of Work Order")]
+        public string SummaryStatus { get; set; }
     }
 }
