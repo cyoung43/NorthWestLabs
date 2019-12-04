@@ -31,19 +31,14 @@ namespace NorthWestLabs.Controllers
             return View();
         }
 
-        public ActionResult Contact()
-        {
-            return View();
-        }
-
         [HttpGet]
-        public ActionResult Login()
+        public ActionResult ClLogin()
         {
             return View();
         }
 
         [HttpPost]
-        public ActionResult Login(FormCollection form, bool rememberMe = false)
+        public ActionResult ClLogin(FormCollection form, bool rememberMe = false)
         {
             String email = form["Email address"].ToString();
             String password = form["Password"].ToString();
@@ -58,8 +53,52 @@ namespace NorthWestLabs.Controllers
             if (currentUser.Count() > 0)
             {
                 FormsAuthentication.SetAuthCookie(email, rememberMe);
-                
+
                 return RedirectToAction("Index", "Clients");
+
+            }
+            else
+            {
+                return View();
+            }
+        }
+
+        [HttpGet]
+        public ActionResult EmpLogin()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult EmpLogin(FormCollection form, bool rememberMe = false)
+        {
+            String empID = form["Employee ID"].ToString();
+            String password = form["Password"].ToString();
+            String location = form["Location"].ToString();
+
+            var currentUser =
+                db.Database.SqlQuery<Employee>(
+            "Select * " +
+            "FROM Employees " +
+            "WHERE EmpID = '" + empID + "' AND " +
+            "EmpPassword = '" + password + "'");
+
+            if (currentUser.Count() > 0)
+            {
+                FormsAuthentication.SetAuthCookie(empID, rememberMe);
+
+                if (location == "1")
+                {
+                    return RedirectToAction("Index", "Singapore");
+                }
+                else if (location == "2")
+                {
+                    return RedirectToAction("Index", "Seattle");
+                }
+                else
+                {
+                    return View();
+                }
 
             }
             else
@@ -75,11 +114,22 @@ namespace NorthWestLabs.Controllers
         }
 
         [HttpPost]
-        public ActionResult CreateProfile(Client client)
+        [ValidateAntiForgeryToken]
+        public ActionResult CreateProfile([Bind(Include = "ClientID,ClFName,ClLName,CompanyName,ClAddress1,ClAddress2,ClEmail,ClPhone,BankAccouNum,Password,ClStatus")] Client client)
         {
+            if (ModelState.IsValid)
+            {
+                db.Clients.Add(client);
+                db.SaveChanges();
+                return RedirectToAction("Index", "Clients");
+            }
 
+            return View(client);
+        }
 
-            return RedirectToAction("Login");
+        public ActionResult ViewClients()
+        {
+            return View(db.Clients.ToList());
         }
     }
 }
