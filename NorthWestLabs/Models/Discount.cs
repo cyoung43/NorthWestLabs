@@ -16,6 +16,6 @@ namespace NorthWestLabs.Models
 
         [Required]
         [Display(Name = "Discount Amount")]
-        public float DisAmt { get; set; }
+        public int DisAmt { get; set; }
     }
 }

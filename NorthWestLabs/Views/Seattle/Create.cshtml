@@ -82,7 +82,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.ClStatus, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.ClStatus, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.DropDownListFor(model => model.ClStatus, new SelectList(ViewBag.Status, "statusDesc", "statusDesc"))
                 @Html.ValidationMessageFor(model => model.ClStatus, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -90,7 +90,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.BankID, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.BankID, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.DropDownListFor(model => model.BankID, new SelectList(ViewBag.Banks, "BankID", "BankName"))
                 @Html.ValidationMessageFor(model => model.BankID, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -98,7 +98,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.DisID, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.DisID, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.DropDownListFor(model => model.DisID, new SelectList(ViewBag.Discounts, "DisID", "DisAmt"))
                 @Html.ValidationMessageFor(model => model.DisID, "", new { @class = "text-danger" })
             </div>
         </div>
