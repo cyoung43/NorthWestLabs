@@ -173,12 +173,17 @@
     <Content Include="Views\Home\Pricing.cshtml" />
     <Content Include="Views\Home\Login.cshtml" />
     <Content Include="Views\Home\CreateProfile.cshtml" />
-    <Content Include="Views\Home\LogInClient.cshtml" />
     <Content Include="Views\Seattle\WorkOrderDelete.cshtml" />
     <Content Include="Views\Seattle\WorkOrderEdit.cshtml" />
     <Content Include="Views\Seattle\WorkOrderCreate.cshtml" />
     <Content Include="Views\Seattle\WorkOrderDetails.cshtml" />
     <Content Include="Views\Seattle\WorkIndex.cshtml" />
+    <Content Include="Views\Seattle\EmployeeDelete.cshtml" />
+    <Content Include="Views\Seattle\EmployeeEdit.cshtml" />
+    <Content Include="Views\Seattle\EmployeeCreate.cshtml" />
+    <Content Include="Views\Seattle\EmployeeDetails.cshtml" />
+    <Content Include="Views\Seattle\EmployeeIndex.cshtml" />
+    <Content Include="Views\Seattle\SeattleHome.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

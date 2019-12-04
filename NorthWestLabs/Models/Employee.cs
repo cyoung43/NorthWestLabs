@@ -25,7 +25,7 @@ namespace NorthWestLabs.Models
 
         [Required]
         [Display(Name = "Employee Wage")]
-        public float EmpWage { get; set; }
+        public double EmpWage { get; set; }
 
         [Required]
         [DisplayName("Employee Password")]

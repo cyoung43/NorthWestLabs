@@ -63,7 +63,6 @@ namespace NorthWestLabs.Models
         public string Password { get; set; }
 
         //This field will have things such as active, unconfirmed, etc.
-        [Required]
         [Display(Name ="Client Status")]
         [StringLength(10)]
         public string ClStatus { get; set; }

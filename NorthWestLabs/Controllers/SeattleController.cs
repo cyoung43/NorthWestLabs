@@ -13,13 +13,14 @@ namespace NorthWestLabs.Controllers
 {
     public class SeattleController : Controller
     {
-        //new list
+        //set up client status list
         public static List<ClientStatus> ClientStatus = new List<ClientStatus>()
         {
             new ClientStatus{statusCode = "A", statusDesc = "Active"},
             new ClientStatus{statusCode = "U", statusDesc = "New Client"}
         };
 
+        //Set up test status list
         public static List<TestStatus> testStatus = new List<TestStatus>()
         {
             new TestStatus{StatusDesc = "Work Order Received"},
@@ -30,6 +31,18 @@ namespace NorthWestLabs.Controllers
         };
 
         private NorthWestLabsContext db = new NorthWestLabsContext();
+
+        public ActionResult SeattleHome()
+        {
+            return View();
+        }
+
+
+         /*
+         ///////////////////////////////////////////////
+         Client Methods
+         //////////////////////////////////////////////    
+         */
 
         // GET: Seattle
         public ActionResult Index()
@@ -62,7 +75,6 @@ namespace NorthWestLabs.Controllers
             //set up viewbags for client
             ViewBag.Banks = db.Banks.ToList();
             ViewBag.Discounts = db.Discounts.ToList();
-            ViewBag.Discounts = db.Discounts.ToList();
             ViewBag.Status = ClientStatus;
             return View();
         }
@@ -72,11 +84,10 @@ namespace NorthWestLabs.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ClientID,ClFName,ClLName,CompanyName,ClAddress1,ClAddress2,ClEmail,ClPhone,BankAccouNum,ClStatus,BankID,DisID")] Client client)
+        public ActionResult Create([Bind(Include = "ClientID,ClFName,ClLName,CompanyName,ClAddress1,ClAddress2,ClEmail,ClPhone,BankAccouNum,Password,ClStatus,BankID,DisID")] Client client)
         {
             //set up clients for viewbags
             ViewBag.Banks = db.Banks.ToList();
-            ViewBag.Discounts = db.Discounts.ToList();
             ViewBag.Discounts = db.Discounts.ToList();
             ViewBag.Status = ClientStatus;
 
@@ -96,7 +107,6 @@ namespace NorthWestLabs.Controllers
         {
             //set up viewbags for clients
             ViewBag.Banks = db.Banks.ToList();
-            ViewBag.Discounts = db.Discounts.ToList();
             ViewBag.Discounts = db.Discounts.ToList();
             ViewBag.Status = ClientStatus;
 
@@ -121,7 +131,6 @@ namespace NorthWestLabs.Controllers
         {
             //set up viewbags for editing client
             ViewBag.Banks = db.Banks.ToList();
-            ViewBag.Discounts = db.Discounts.ToList();
             ViewBag.Discounts = db.Discounts.ToList();
             ViewBag.Status = ClientStatus;
 
@@ -160,7 +169,7 @@ namespace NorthWestLabs.Controllers
             return RedirectToAction("Index");
         }
 
-        /*
+         /*
          ///////////////////////////////////////////////
          Work Order Methods
          //////////////////////////////////////////////    
@@ -170,6 +179,7 @@ namespace NorthWestLabs.Controllers
         {
             ViewBag.Clients = db.Clients.ToList();
             ViewBag.Summary = testStatus;
+            ViewBag.Employees = db.Employees.ToList();
             return View(db.WorkOrders.ToList());
         }
 
@@ -178,6 +188,8 @@ namespace NorthWestLabs.Controllers
         {
             ViewBag.Clients = db.Clients.ToList();
             ViewBag.Summary = testStatus;
+            ViewBag.Employees = db.Employees.ToList();
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -195,6 +207,7 @@ namespace NorthWestLabs.Controllers
         {
             ViewBag.Clients = db.Clients.ToList();
             ViewBag.Summary = testStatus;
+            ViewBag.Employees = db.Employees.ToList();
             //set up viewbags for client
 
             return View();
@@ -209,6 +222,7 @@ namespace NorthWestLabs.Controllers
         {
             ViewBag.Clients = db.Clients.ToList();
             ViewBag.Summary = testStatus;
+            ViewBag.Employees = db.Employees.ToList();
 
             if (ModelState.IsValid)
             {
@@ -227,6 +241,7 @@ namespace NorthWestLabs.Controllers
             //set up viewbags for clients
             ViewBag.Clients = db.Clients.ToList();
             ViewBag.Summary = testStatus;
+            ViewBag.Employees = db.Employees.ToList();
 
             if (id == null)
             {
@@ -250,6 +265,7 @@ namespace NorthWestLabs.Controllers
             //set up viewbags for editing client
             ViewBag.Clients = db.Clients.ToList();
             ViewBag.Summary = testStatus;
+            ViewBag.Employees = db.Employees.ToList();
 
             if (ModelState.IsValid)
             {
@@ -285,6 +301,125 @@ namespace NorthWestLabs.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+
+         /*
+         ///////////////////////////////////////////////
+         Employee Methods
+         ///////////////////////////////////////////////    
+         */
+
+        public ActionResult EmployeeIndex()
+        {
+            ViewBag.Position = db.EmployeeTypes.ToList();
+            return View(db.Employees.ToList());
+        }
+
+        // GET: Seattle/WorkOrderDetails
+        public ActionResult EmployeeDetails(int? id)
+        {
+            ViewBag.Position = db.EmployeeTypes.ToList();
+
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Employee employee = db.Employees.Find(id);
+
+            if (employee == null)
+            {
+                return HttpNotFound();
+            }
+            return View(employee);
+        }
+
+        // GET: Seattle/Create
+        public ActionResult EmployeeCreate()
+        {
+            ViewBag.Position = db.EmployeeTypes.ToList();
+            return View();
+        }
+
+        // POST: Seattle/WorkOrderCreate
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult EmployeeCreate([Bind(Include = "EmpID,EmpFName,EmpLName,EmpWage,EmpPassword,EmpType")] Employee employee)
+        {
+            ViewBag.Position = db.EmployeeTypes.ToList();
+
+            if (ModelState.IsValid)
+            {
+                db.Employees.Add(employee);
+                db.SaveChanges();
+
+                return RedirectToAction("EmployeeIndex");
+            }
+
+            return View(employee);
+        }
+
+        // GET: Seattle/Edit/5
+        public ActionResult EmployeeEdit(int? id)
+        {
+            ViewBag.Position = db.EmployeeTypes.ToList();
+
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Employee employee = db.Employees.Find(id);
+            if (employee == null)
+            {
+                return HttpNotFound();
+            }
+            return View(employee);
+        }
+
+        // POST: Seattle/EditWorkOrder/5
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult EmployeeEdit([Bind(Include = "EmpID,EmpFName,EmpLName,EmpWage,EmpPassword,EmpType")] Employee employee)
+        {
+            ViewBag.Position = db.EmployeeTypes.ToList();
+
+            if (ModelState.IsValid)
+            {
+                db.Entry(employee).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(employee);
+        }
+
+        // GET: Seattle/Delete/5
+        public ActionResult EmployeeDelete(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Employee employee = db.Employees.Find(id);
+            if (employee == null)
+            {
+                return HttpNotFound();
+            }
+            return View(employee);
+        }
+
+        // POST: Seattle/Delete/5
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult EmployeeDeleteConfirmed(int id)
+        {
+            Employee employee = db.Employees.Find(id);
+            db.Employees.Remove(employee);
+            db.SaveChanges();
+            return RedirectToAction("EmployeeIndex");
+        }
+
 
         protected override void Dispose(bool disposing)
         {
