@@ -60,6 +60,8 @@
     </div>
 }
 
-<div>
-    @Html.ActionLink("Back to Work Orders", "ViewOrders", new { id = ViewBag.clID })
-</div>
+    <div>
+        @Html.ActionLink("Back to Work Orders", "ViewOrders", new { id = ViewBag.clID })
+        <br />
+        @Html.ActionLink("Back to Client Home", "ClientHome2", new { id = ViewBag.clID })
+    </div>
