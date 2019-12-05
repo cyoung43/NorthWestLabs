@@ -173,7 +173,7 @@ namespace NorthWestLabs.Controllers
         //////////////////////////////////////////////    
         */
 
-        public static List<AddQuote> Quotes = new List<AddQuote>();
+        //public static List<AddQuote> Quotes = new List<AddQuote>();
 
         [HttpGet]
         public ActionResult AddQuote()
@@ -196,8 +196,8 @@ namespace NorthWestLabs.Controllers
             }
             else
             {
-                addQuote.QCode = Quotes.Count() + 1;
-                Quotes.Add(addQuote);
+                addQuote.QCode = HomeController.Quotes.Count() + 1;
+                HomeController.Quotes.Add(addQuote);
                 return RedirectToAction("About", "Home");
             }
             

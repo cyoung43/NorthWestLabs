@@ -12,7 +12,7 @@ using NorthWestLabs.Models;
 
 namespace NorthWestLabs.Controllers
 {
-    [Authorize]
+    //[Authorize]
     public class SingaporeController : Controller
     {
         private NorthWestLabsContext db = new NorthWestLabsContext();
@@ -24,13 +24,13 @@ namespace NorthWestLabs.Controllers
 
         public ActionResult SeeQuotes()
         {
-            return View(ClientsController.Quotes);
+            return View(HomeController.Quotes);
         }
 
         [HttpGet]
         public ActionResult AssignPrice(int? id)
         {
-            AddQuote addQuote = ClientsController.Quotes.Find(x => x.QCode == id);
+            AddQuote addQuote = HomeController.Quotes.Find(x => x.QCode == id);
 
             return View(addQuote);
         }
@@ -38,7 +38,7 @@ namespace NorthWestLabs.Controllers
         [HttpPost]
         public ActionResult AssignPrice(AddQuote addQuote)
         {
-            var obj = ClientsController.Quotes.FirstOrDefault(x => x.QCode == addQuote.QCode);
+            var obj = HomeController.Quotes.FirstOrDefault(x => x.QCode == addQuote.QCode);
 
             if (obj != null)
             {
@@ -71,7 +71,7 @@ namespace NorthWestLabs.Controllers
             smtp.EnableSsl = true;
             smtp.Send(mail);
 
-            ClientsController.Quotes.Remove(ClientsController.Quotes.FirstOrDefault(x => x.QCode == finishedQuote.QCode));
+            HomeController.Quotes.Remove(HomeController.Quotes.FirstOrDefault(x => x.QCode == finishedQuote.QCode));
             return RedirectToAction("CurrentQuotes", new { result = "Quote results sent."});
         }
 
@@ -79,10 +79,10 @@ namespace NorthWestLabs.Controllers
         {
             ViewBag.Result = result;
 
-            int quoteCount = ClientsController.Quotes.Count();
+            int quoteCount = HomeController.Quotes.Count();
             string request;
         
-            if (quoteCount > 1)
+            if (quoteCount > 1 || quoteCount == 0)
             {
                 request = "requests";
             }
