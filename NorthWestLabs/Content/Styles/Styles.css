@@ -1,0 +1,6 @@
+﻿.backgroundImage {
+    background-image: url('../Images/alex-kondratiev-H9t723yPjYI-unsplash.jpg');
+    /*background-image: url('../Images/hans-reniers-lQGJCMY5qcM-unsplash.jpg');*/
+    /*background-image: url('../Images/nasa-Q1p7bh3SHj8-unsplash.jpg');*/
+    background-size: cover;
+}
