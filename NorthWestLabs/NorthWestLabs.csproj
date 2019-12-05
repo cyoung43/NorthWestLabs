@@ -192,6 +192,7 @@
     <Content Include="Views\Singapore\EditWorkOrder.cshtml" />
     <Content Include="Views\Singapore\WorkOrderDetails.cshtml" />
     <Content Include="Views\Singapore\SingaporeHome.cshtml" />
+    <Content Include="Views\Clients\ClientPrice.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

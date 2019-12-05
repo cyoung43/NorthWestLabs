@@ -11,6 +11,7 @@ using NorthWestLabs.Models;
 
 namespace NorthWestLabs.Controllers
 {
+    [Authorize]
     public class SeattleController : Controller
     {
         //set up client status list

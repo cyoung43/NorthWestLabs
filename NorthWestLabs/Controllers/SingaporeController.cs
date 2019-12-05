@@ -12,6 +12,7 @@ using NorthWestLabs.Models;
 
 namespace NorthWestLabs.Controllers
 {
+    [Authorize]
     public class SingaporeController : Controller
     {
         private NorthWestLabsContext db = new NorthWestLabsContext();

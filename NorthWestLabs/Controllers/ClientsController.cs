@@ -11,6 +11,7 @@ using NorthWestLabs.Models;
 
 namespace NorthWestLabs.Controllers
 {
+    [Authorize]
     public class ClientsController : Controller
     {
         private NorthWestLabsContext db = new NorthWestLabsContext();
@@ -27,6 +28,12 @@ namespace NorthWestLabs.Controllers
         {
             Client User = db.Clients.Find(id);
             return View("ClientHome", User);
+        }
+
+        public ActionResult ClientPrice(int? id)
+        {
+            Client User = db.Clients.Find(id);
+            return View(User);
         }
 
         // CLIENT INFO STUFF
@@ -92,6 +99,19 @@ namespace NorthWestLabs.Controllers
                    ("SELECT * " +
                     "FROM WorkOrders " +
                     "WHERE ClientID = '" + client.ClientID + "'");
+
+            if (orders.FirstOrDefault() == null)
+            {
+                WorkOrder WO = new WorkOrder { DueDate = DateTime.Now, comments = "NO WORK ORDERS", ClientID = client.ClientID };
+
+                List<WorkOrder> WOL = new List<WorkOrder>();
+
+                WOL.Add(WO);
+
+                IEnumerable<WorkOrder> NoOrder = WOL;
+
+                orders = NoOrder;
+            }
 
             return View(orders);
         }
