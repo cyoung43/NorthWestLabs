@@ -4,71 +4,80 @@
     ViewBag.Title = "ListWorkOrder";
 }
 
-<h2>ListWorkOrder</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.ReceivedDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DueDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.RushOrder)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.comments)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ReceivedBy)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.WOReport)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ClientID)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SummaryStatus)
-        </th>
-        <th></th>
-    </tr>
+<body style="background-image: url(../../Content/Images/hans-reniers-lQGJCMY5qcM-unsplash.jpg); background-size: cover;">
+    <div class="jumbotron" style="font-size: 15px;">
+        <h2>Work Orders</h2>
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.ReceivedDate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DueDate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.RushOrder)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.comments)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ReceivedBy)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.WOReport)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ClientID)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SummaryStatus)
+                </th>
+                <th></th>
+            </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.ReceivedDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DueDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.RushOrder)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.comments)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ReceivedBy)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.WOReport)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ClientID)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SummaryStatus)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "EditWorkOrder", new { id=item.WrkOrdID }) |
-            @Html.ActionLink("Details", "WorkOrderDetails", new { id=item.WrkOrdID })
-        </td>
-    </tr>
-}
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ReceivedDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DueDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.RushOrder)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.comments)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ReceivedBy)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.WOReport)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ClientID)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SummaryStatus)
+                    </td>
+                    <td style="font-size: 10px;">
+                        @Html.ActionLink("Edit", "EditWorkOrder", new { id = item.WrkOrdID }, new { @class="btn btn-primary btn-sm"})
+                        @Html.ActionLink("Details", "WorkOrderDetails", new { id = item.WrkOrdID }, new { @class = "btn btn-primary btn-sm" })
+                    </td>
+                </tr>
+            }
 
-</table>
+        </table>
+        <p>
+            @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-primary btn-lg" })
+            @Html.ActionLink("Back to Home", "SingaporeHome", null, new { @class = "btn btn-primary btn-lg" })
+
+        </p>
+    </div>
+</body>
+
+

@@ -4,93 +4,100 @@
     ViewBag.Title = "SeeQuotes";
 }
 
-<h2>Current Quote Requests</h2>
 
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.QCode)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Email)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.FullName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DayNum)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.BP)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DS)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.IS)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PF)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PS)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CS)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Custom)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Comments)
-        </th>
-        <th></th>
-    </tr>
+<body style="background-image: url(../../Content/Images/hans-reniers-lQGJCMY5qcM-unsplash.jpg); background-size: cover;">
+    <div style="background-color: lightgray; opacity: 0.9; font-size: 10px; padding-left: 50px; padding-top: 20px; padding-bottom: 20px;">
+        <h2>Current Quote Requests</h2>
+        <table class="table">
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.QCode)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Email)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.FullName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DayNum)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.BP)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DS)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.IS)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PF)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PS)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CS)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Custom)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Comments)
-        </td>
-        <td>
-            @Html.ActionLink("Send Quote Price", "AssignPrice", new {  id=item.QCode  }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-        </td>
-    </tr>
-}
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.QCode)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Email)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.FullName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DayNum)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.BP)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DS)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.IS)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PF)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PS)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CS)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Custom)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Comments)
+                </th>
+                <th></th>
+            </tr>
 
-</table>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.QCode)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Email)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FullName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DayNum)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.BP)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DS)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.IS)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PF)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PS)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CS)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Custom)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Comments)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Send Quote Price", "AssignPrice", new { id = item.QCode }, new { @class = "btn btn-primary btn-sm" })
+                    </td>
+                </tr>
+            }
+
+        </table>
+        @Html.ActionLink("Back to Home", "SingaporeHome", null, new { @class = "btn btn-primary btn-lg" })
+    </div>
+</body>
+
+
