@@ -200,6 +200,7 @@
     <Content Include="Views\Singapore\WorkOrderDetails.cshtml" />
     <Content Include="Views\Singapore\SingaporeHome.cshtml" />
     <Content Include="Views\Clients\ClientPrice.cshtml" />
+    <Content Include="Views\Home\Login.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
