@@ -1,10 +1,10 @@
 ﻿@model NorthWestLabs.Models.WorkOrder
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "WorkOrderDetails";
 }
 
-<h2>Details</h2>
+<h2>WorkOrderDetails</h2>
 
 <div>
     <h4>WorkOrder</h4>
@@ -51,11 +51,11 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.WOResult)
+            @Html.DisplayNameFor(model => model.WOReport)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.WOResult)
+            @Html.DisplayFor(model => model.WOReport)
         </dd>
 
         <dt>
@@ -66,9 +66,17 @@
             @Html.DisplayFor(model => model.ClientID)
         </dd>
 
+        <dt>
+            @Html.DisplayNameFor(model => model.SummaryStatus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SummaryStatus)
+        </dd>
+
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.WrkOrdID }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Edit", "EditWorkOrder", new { id = Model.WrkOrdID }) |
+    @Html.ActionLink("Back to List", "ListWorkOrder")
 </p>

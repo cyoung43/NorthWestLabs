@@ -159,11 +159,6 @@
     <Content Include="Views\Seattle\Edit.cshtml" />
     <Content Include="Views\Seattle\Index.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
-    <Content Include="Views\Singapore\Create.cshtml" />
-    <Content Include="Views\Singapore\Delete.cshtml" />
-    <Content Include="Views\Singapore\Details.cshtml" />
-    <Content Include="Views\Singapore\Edit.cshtml" />
-    <Content Include="Views\Singapore\Index.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\Pricing.cshtml" />
@@ -193,6 +188,10 @@
     <Content Include="Views\Clients\ViewOrders.cshtml" />
     <Content Include="Views\Clients\OrderDetails.cshtml" />
     <Content Include="Views\Clients\CreateOrder.cshtml" />
+    <Content Include="Views\Singapore\ListWorkOrder.cshtml" />
+    <Content Include="Views\Singapore\EditWorkOrder.cshtml" />
+    <Content Include="Views\Singapore\WorkOrderDetails.cshtml" />
+    <Content Include="Views\Singapore\SingaporeHome.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
