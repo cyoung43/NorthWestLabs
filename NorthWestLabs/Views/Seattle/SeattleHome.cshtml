@@ -10,34 +10,42 @@
     <!-- Page content -->
     <div class="w3-content w3-padding" style="max-width:1564px">
 
-        <!-- Project Section -->
-        <div class="w3-container w3-padding-32" id="projects">
-            <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">Welcome Seattle Home</h3>
-        </div>
 
-        <div class="w3-row-padding">
-            <div class="w3-col l3 m6 w3-margin-bottom">                
-                <p><button class="w3-button w3-light-grey w3-block">Contact</button></p>
+        <!-- Header -->
+        <header class="w3-display-container w3-content w3-wide" style="max-width:1500px;" id="home">
+            <img class="w3-image" src="~/Content/Images/Seattle-unsplash.jpg" alt="Architecture" width="1500" height="800">
+            <div class="w3-display-middle w3-margin-top w3-center">
+                <h1 class="w3-xxlarge w3-text-white"><span class="w3-padding w3-black w3-opacity-min"><b>Seattle</b></span> <span class="w3-hide-small w3-text-light-grey">Employees</span></h1>
             </div>
-            
+        </header>
+
+       
+        <div class="w3-row-padding w3-grayscale" style="text-align: center;">
             <div class="w3-col l3 m6 w3-margin-bottom">
-                <div class="w3-display-container">
-                    <div class="w3-display-topleft w3-black w3-padding" onclick="location.href='@Html.Action("WorkIndex")'">Work Orders</div>
-                    <img src="/w3images/house2.jpg" alt="House" style="width:100%">
-                </div>
+                <h3>Employees</h3>
+                <img src="~/Content/Images/Employees-Unsplash.jpg" alt="Employee Picture" style="width:100%">
+                <br /><br />
+                <p><input value="View Employees" type="button" class="w3-button w3-light-grey w3-block" onclick="location.href='@Url.Action("EmployeeIndex")'" /></p>
             </div>
             <div class="w3-col l3 m6 w3-margin-bottom">
-                <div class="w3-display-container">
-                    <div class="w3-display-topleft w3-black w3-padding">@Html.ActionLink("Clients", "Index")</div>
-                    <img src="/w3images/house3.jpg" alt="House" style="width:100%">
-                </div>
+                <h3>Work Orders</h3>
+                <img src="~/Content/Images/WorkOrder-Unsplash (2).jpg" alt="Work Order Picture" style="width:100%">
+                <br /><br />
+                <p><input value="View Work Orders" type="button" class="w3-button w3-light-grey w3-block" onclick="location.href='@Url.Action("WorkIndex")'" /></p>
             </div>
-        </div>      
-        <!--
-        <p>Welcome!</p>
-        Html.ActionLink("Employees", "EmployeeIndex") <br />
-        Html.ActionLink("Work Orders", "WorkIndex") <br />
-        Html.ActionLink("Clients", "Index")
-        -->
+            <div class="w3-col l3 m6 w3-margin-bottom">
+                <h3>Clients</h3>
+                <img src="~/Content/Images/HandShake-Unsplash.jpg" alt="Client Picture" style="width:100%">
+                <br /><br />
+                <p><input value="View Clients" type="button" class="w3-button w3-light-grey w3-block" onclick="location.href='@Url.Action("Index")'" /></p>
+            </div>
+            <div class="w3-col l3 m6 w3-margin-bottom">
+                <h3>Quotes</h3>
+                <img src="~/Content/Images/Quotes-unsplash.jpg" alt="Quotes Picture" style="width:100%">
+                <br /><br />
+                <p><input value="View Quotes" type="button" class="w3-button w3-light-grey w3-block" onclick="location.href='@Url.Action("SeeQuotes")'" /></p>
+            </div>
+
+        </div>        
     </div>
 </body>
