@@ -1,0 +1,21 @@
+﻿@model NorthWestLabs.Models.Client
+
+@{
+    ViewBag.Title = "ClientHome";
+}
+
+<h2>Client Home Page</h2>
+<br />
+<h2>Welcome</h2>
+
+@Html.DisplayFor(model => model.ClFName)
+<br /><br />
+
+@Html.ActionLink("Create Work Order", "CreateOrder", new { id = Model.ClientID })
+<br /><br />
+
+@Html.ActionLink("View Work Orders", "ViewOrders", new { id = Model.ClientID })
+<br /><br />
+
+@Html.ActionLink("View Profile Info", "ViewProfile", new { id = Model.ClientID })
+<br /><br />

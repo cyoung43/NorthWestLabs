@@ -1,0 +1,65 @@
+﻿@model IEnumerable<NorthWestLabs.Models.WorkOrder>
+
+@{
+    ViewBag.Title = "ViewOrders";
+}
+
+<h2>ViewOrders</h2>
+
+<p>
+    @Html.ActionLink("Create New Order", "CreateOrder", new { id = Model.FirstOrDefault().ClientID })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ReceivedDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DueDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RushOrder)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.comments)
+        </th>        
+        <th>
+            @Html.DisplayNameFor(model => model.WOReport)
+        </th>       
+        <th>
+            @Html.DisplayNameFor(model => model.SummaryStatus)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ReceivedDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DueDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RushOrder)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.comments)
+        </td>        
+        <td>
+            @Html.DisplayFor(modelItem => item.WOReport)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SummaryStatus)
+        </td>
+        <td>            
+            @Html.ActionLink("Details", "OrderDetails", new { id=item.WrkOrdID })             
+        </td>
+    </tr>
+}
+
+</table>
+
+<p>
+    @Html.ActionLink("Back to Client Home", "ClientHome2", new { id=Model.FirstOrDefault().ClientID })
+</p>

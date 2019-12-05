@@ -15,107 +15,128 @@ namespace NorthWestLabs.Controllers
     {
         private NorthWestLabsContext db = new NorthWestLabsContext();
 
-        // GET: Clients
-        public ActionResult Index()
+        [ActionName("ClientHome")]
+        public ActionResult ClientHome(Client User)
         {
-            return View(db.Clients.ToList());
+            ViewBag.CurrentUser = User;
+            return View(User);
         }
 
-        // GET: Clients/Details/5
-        public ActionResult Details(int? id)
+        [ActionName("ClientHome2")]
+        public ActionResult ClientHome(int? id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Client client = db.Clients.Find(id);
-            if (client == null)
-            {
-                return HttpNotFound();
-            }
-            return View(client);
+            Client User = db.Clients.Find(id);
+            return View("ClientHome", User);
         }
 
-        // GET: Clients/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: Clients/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ClientID,ClFName,ClLName,CompanyName,ClAddress1,ClAddress2,ClEmail,ClPhone,BankAccouNum,ClStatus,BankID,DisID")] Client client)
-        {
-            if (ModelState.IsValid)
-            {
-                db.Clients.Add(client);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-
-            return View(client);
-        }
-
-        // GET: Clients/Edit/5
-        public ActionResult Edit(int? id)
+        // CLIENT INFO STUFF
+        // CLIENT INFO STUFF
+        // CLIENT INFO STUFF
+        // CLIENT INFO STUFF
+        public ActionResult ViewProfile(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Client client = db.Clients.Find(id);
-            if (client == null)
+            Client User = db.Clients.Find(id);
+            if (User == null)
             {
                 return HttpNotFound();
             }
-            return View(client);
+
+            return View(User);
         }
 
-        // POST: Clients/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpGet]
+        public ActionResult EditProfile(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Client User = db.Clients.Find(id);
+            if (User == null)
+            {
+                return HttpNotFound();
+            }
+            return View(User);            
+        }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ClientID,ClFName,ClLName,CompanyName,ClAddress1,ClAddress2,ClEmail,ClPhone,BankAccouNum,ClStatus,BankID,DisID")] Client client)
+        public ActionResult EditProfile([Bind(Include = "ClientID,ClFName,ClLName,CompanyName,ClAddress1,ClAddress2,ClEmail,ClPhone,BankAccouNum,Password,ClStatus")] Client client)
         {
             if (ModelState.IsValid)
             {
                 db.Entry(client).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("ClientHome", client);
             }
             return View(client);
         }
 
-        // GET: Clients/Delete/5
-        public ActionResult Delete(int? id)
+
+        // WORK ORDER STUFF
+        // WORK ORDER STUFF
+        // WORK ORDER STUFF
+        // WORK ORDER STUFF
+        public ActionResult ViewOrders(int? id)
+        {
+            ViewBag.clID = id;
+
+            Client client = db.Clients.Find(id);
+
+            IEnumerable<WorkOrder> orders =
+                   db.Database.SqlQuery<WorkOrder>
+                   ("SELECT * " +
+                    "FROM WorkOrders " +
+                    "WHERE ClientID = '" + client.ClientID + "'");
+
+            return View(orders);
+        }
+
+        public ActionResult OrderDetails(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Client client = db.Clients.Find(id);
-            if (client == null)
+            WorkOrder WorkOrder = db.WorkOrders.Find(id);
+            if (WorkOrder == null)
             {
                 return HttpNotFound();
             }
-            return View(client);
+            return View(WorkOrder);
         }
 
-        // POST: Clients/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        [HttpGet]
+        public ActionResult CreateOrder(int? id)
         {
-            Client client = db.Clients.Find(id);
-            db.Clients.Remove(client);
-            db.SaveChanges();
-            return RedirectToAction("Index");
+            ViewBag.clID = id;
+
+            return View();
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult CreateOrder([Bind(Include = "WrkOrderID,DueDate,RushOrder,Comments,ClientID")] WorkOrder workOrder)
+        {
+            if (ModelState.IsValid)
+            {
+                db.WorkOrders.Add(workOrder);
+                db.SaveChanges();
+
+                int? OldId = workOrder.ClientID;
+
+                return RedirectToAction("ViewOrders", new { id = OldId });
+            }           
+
+            return View(workOrder);
+        }
+
+                                      
+        // Not sure what this is
         protected override void Dispose(bool disposing)
         {
             if (disposing)

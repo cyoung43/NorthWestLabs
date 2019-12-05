@@ -1,12 +1,11 @@
 ﻿@model NorthWestLabs.Models.Client
 
 @{
-    ViewBag.Title = "Delete";
+    ViewBag.Title = "ViewProfile";
 }
 
-<h2>Delete</h2>
+<h2>ViewProfile</h2>
 
-<h3>Are you sure you want to delete this?</h3>
 <div>
     <h4>Client</h4>
     <hr />
@@ -76,37 +75,20 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.ClStatus)
+            @Html.DisplayNameFor(model => model.Password)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.ClStatus)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.BankID)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.BankID)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.DisID)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.DisID)
+            @Html.DisplayFor(model => model.Password)
         </dd>
 
     </dl>
-
-    @using (Html.BeginForm()) {
-        @Html.AntiForgeryToken()
-
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
-        </div>
-    }
 </div>
+
+
+<p>
+    @Html.ActionLink("Edit", "EditProfile", new { id = Model.ClientID })
+    <br /><br />
+    @Html.ActionLink("Back to Client Home", "ClientHome", new { id = Model.ClientID })
+</p>
+

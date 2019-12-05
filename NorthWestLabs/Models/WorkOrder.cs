@@ -16,7 +16,7 @@ namespace NorthWestLabs.Models
         [Display(Name = "Work Order ID")]
         public int WrkOrdID { get; set; }
 
-        [Required]
+        
         [Display(Name = "Date Received")]
         [DataType("Date")]
         public DateTime ReceivedDate { get; set; }
@@ -34,7 +34,7 @@ namespace NorthWestLabs.Models
         [Display(Name ="Comments")]
         public string comments { get; set; }
 
-        [Required]
+        
         [Display(Name ="Received By")]
         public int ReceivedBy { get; set; }
 

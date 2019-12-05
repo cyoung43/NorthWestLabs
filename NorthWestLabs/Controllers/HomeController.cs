@@ -50,11 +50,18 @@ namespace NorthWestLabs.Controllers
             "WHERE ClEmail = '" + email + "' AND " +
             "Password = '" + password + "'");
 
+            IEnumerable<Client> User = 
+                db.Database.SqlQuery<Client>(
+            "Select * " +
+            "FROM Clients " +
+            "WHERE ClEmail = '" + email + "' AND " +
+            "Password = '" + password + "'");
+
             if (currentUser.Count() > 0)
             {
                 FormsAuthentication.SetAuthCookie(email, rememberMe);
 
-                return RedirectToAction("Index", "Clients");
+                return RedirectToAction("ClientHome", "Clients", User.FirstOrDefault());
 
             }
             else
@@ -93,7 +100,7 @@ namespace NorthWestLabs.Controllers
                 }
                 else if (location == "2")
                 {
-                    return RedirectToAction("Index", "Seattle");
+                    return RedirectToAction("SeattleHome", "Seattle");
                 }
                 else
                 {
@@ -121,7 +128,7 @@ namespace NorthWestLabs.Controllers
             {
                 db.Clients.Add(client);
                 db.SaveChanges();
-                return RedirectToAction("Index", "Clients");
+                return RedirectToAction("ClientHome", "Clients", client);
             }
 
             return View(client);
