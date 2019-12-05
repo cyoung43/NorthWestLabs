@@ -182,9 +182,16 @@ namespace NorthWestLabs.Controllers
             {
                 addQuote.QCode = Quotes.Count() + 1;
                 Quotes.Add(addQuote);
-                return RedirectToAction("About", "Home");
+                return RedirectToAction("Thanks", addQuote);
             }
 
+        }
+
+        public ActionResult Thanks(AddQuote addQuote)
+        {
+            ViewBag.Thanks = "Thank you, " + addQuote.FullName + ", for your interest in Northwest Labs.<br/><br/>" +
+                "You can expect to hear back from us via email within the week.";
+            return View();
         }
     }
 }

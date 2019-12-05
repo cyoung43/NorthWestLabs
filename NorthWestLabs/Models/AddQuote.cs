@@ -23,28 +23,28 @@ namespace NorthWestLabs.Models
         [DisplayName("Total Price")]
         public int TotalPrice { get; set; }
 
-        [DisplayName("Biochemical Pharmacology Test")]
+        [DisplayName("Biochemical Pharmacology (BP)")]
         public bool BP { get; set; }
 
-        [DisplayName("DiscoveryScreen Test")]
+        [DisplayName("DiscoveryScreen (DS)")]
         public bool DS { get; set; }
 
-        [DisplayName("ImmunoScreen Test")]
+        [DisplayName("ImmunoScreen (IS)")]
         public bool IS { get; set; }
 
-        [DisplayName("ProfilingScreen Test")]
+        [DisplayName("ProfilingScreen (PF)")]
         public bool PF { get; set; }
 
-        [DisplayName("PharmaScreen Test")]
+        [DisplayName("PharmaScreen (PS)")]
         public bool PS { get; set; }
 
-        [DisplayName("CustomScreen Test")]
+        [DisplayName("CustomScreen (CS)")]
         public bool CS { get; set; }
 
         [DisplayName("Custom Tests")]
         public string Custom { get; set; }
 
-        [DisplayName("Comments/Instructions")]
+        [DisplayName("Comments")]
         public string Comments { get; set; }
     }
 }

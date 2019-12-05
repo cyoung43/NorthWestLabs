@@ -4,91 +4,98 @@
     ViewBag.Title = "ViewProfile";
 }
 
-<h2>ViewProfile</h2>
+<body style="background-image: url(../../Content/Images/hans-reniers-lQGJCMY5qcM-unsplash.jpg); background-size: cover;">
+    <div class="jumbotron">
+        <div style="font-size: 15px;">
+            <h1>My Profile</h1>
+            <hr />
+            <fieldset style="width: 500px;">
+                <dl class="dl-horizontal">
+                    <dt>
+                        @Html.DisplayNameFor(model => model.ClFName)
+                    </dt>
 
-<div>
-    <h4>Client</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.ClFName)
-        </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.ClFName)
+                    </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.ClFName)
-        </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.ClLName)
+                    </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.ClLName)
-        </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.ClLName)
+                    </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.ClLName)
-        </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.CompanyName)
+                    </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.CompanyName)
-        </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.CompanyName)
+                    </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.CompanyName)
-        </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.ClAddress1)
+                    </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.ClAddress1)
-        </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.ClAddress1)
+                    </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.ClAddress1)
-        </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.ClAddress2)
+                    </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.ClAddress2)
-        </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.ClAddress2)
+                    </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.ClAddress2)
-        </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.ClEmail)
+                    </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.ClEmail)
-        </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.ClEmail)
+                    </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.ClEmail)
-        </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.ClPhone)
+                    </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.ClPhone)
-        </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.ClPhone)
+                    </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.ClPhone)
-        </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.BankAccouNum)
+                    </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.BankAccouNum)
-        </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.BankAccouNum)
+                    </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.BankAccouNum)
-        </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Password)
+                    </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Password)
-        </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.Password)
+                    </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Password)
-        </dd>
+                </dl>
+            </fieldset>
+        </div>
+        <br />
 
-    </dl>
-</div>
+        <p>
+            @Html.ActionLink("Edit", "EditProfile", new { id = Model.ClientID }, new { @class = "btn btn-primary btn-lg" })
+            
+            @Html.ActionLink("Back to Client Home", "ClientHome2", new { id = Model.ClientID }, new { @class = "btn btn-primary btn-lg" })
+        </p>
+    </div>
+</body>
+<h2>My Profile</h2>
 
 
-<p>
-    @Html.ActionLink("Edit", "EditProfile", new { id = Model.ClientID })
-    <br /><br />
-    @Html.ActionLink("Back to Client Home", "ClientHome2", new { id = Model.ClientID })
-</p>
 

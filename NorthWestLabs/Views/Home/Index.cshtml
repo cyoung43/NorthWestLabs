@@ -18,9 +18,8 @@
         <div class="w3-container w3-padding-32" id="about">
             <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">About</h3>
             <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint
-                occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                laboris nisi ut aliquip ex ea commodo consequat.
+                Here at Northwest Labs we strive to get the precise, well documented, and accurately reported results that you need. We process every order like it is our only order because we beleive that our customers deserve the highest quality results.
+                Our committment is to our clients.
             </p>
         </div>
 
@@ -29,25 +28,25 @@
                 <img src="~/Content/Images/gary.jpg" alt="John" style="width:100%">
                 <h3>Gary Anderson</h3>
                 <p class="w3-opacity">CEO & Founder</p>
-                <p><button class="w3-button w3-light-grey w3-block" onclick="location.href='@Html.Action("CreateProfile")'">Create New Profile</button></p>
+                <p><input value="Create New Profile" type="button" class="w3-button w3-light-grey w3-block" onclick="location.href='@Url.Action("CreateProfile")'" /></p>
             </div>
             <div class="w3-col l3 m6 w3-margin-bottom">
                 <img src="~/Content/Images/dallin.jpg" alt="Jane" style="width:100%">
                 <h3>Dallin Fairbanks</h3>
                 <p class="w3-opacity">Singapore Operations</p>
-                <p><button class="w3-button w3-light-grey w3-block" onclick="location.href='@Html.Action("Pricing")'">Pricing</button></p>
+                <p><input value="See Pricing" type="button" class="w3-button w3-light-grey w3-block" onclick="location.href='@Url.Action("Pricing")'" /></p>
             </div>
             <div class="w3-col l3 m6 w3-margin-bottom">
                 <img src="~/Content/Images/bonnie.jpg" alt="Mike" style="width:100%">
                 <h3>Bonnie McDougal</h3>
                 <p class="w3-opacity">Sales Director</p>
-                <p><button class="w3-button w3-light-grey w3-block" onclick="location.href='@Html.Action("AddQuote")'">Quote Request</button></p>
+                <p><input value="Request Price Quote" type="button" class="w3-button w3-light-grey w3-block" onclick="location.href='@Url.Action("AddQuote")'" /></p>
             </div>
             <div class="w3-col l3 m6 w3-margin-bottom">
                 <img src="~/Content/Images/mason.jpg" alt="Dan" style="width:100%">
                 <h3>Mason Brockbank</h3>
-                <p class="w3-opacity">Pharmecutical Director</p>
-                <p><button class="w3-button w3-light-grey w3-block" onclick="location.href='@Html.Action("Login")'">Login</button></p>
+                <p class="w3-opacity">Pharmeceutical Director</p>
+                <p><input value="Login" type="button" class="w3-button w3-light-grey w3-block" onclick="location.href='@Url.Action("Login")'" /></p>
             </div>
         </div>
     </div>

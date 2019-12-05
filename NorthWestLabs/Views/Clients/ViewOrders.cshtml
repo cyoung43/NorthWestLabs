@@ -4,56 +4,64 @@
     ViewBag.Title = "ViewOrders";
 }
 
-<h2>ViewOrders</h2>
 
-<p>
-    @Html.ActionLink("Create New Order", "CreateOrder", new { id = Model.FirstOrDefault().ClientID })
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.DueDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.RushOrder)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.comments)
-        </th>        
-        <th>
-            @Html.DisplayNameFor(model => model.WOReport)
-        </th>       
-        <th>
-            @Html.DisplayNameFor(model => model.SummaryStatus)
-        </th>
-        <th></th>
-    </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.DueDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.RushOrder)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.comments)
-        </td>        
-        <td>
-            @Html.DisplayFor(modelItem => item.WOReport)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SummaryStatus)
-        </td>
-        <td>            
-            @Html.ActionLink("Details", "OrderDetails", new { id=item.WrkOrdID })             
-        </td>
-    </tr>
-}
+<body style="background-image: url(../../Content/Images/hans-reniers-lQGJCMY5qcM-unsplash.jpg); background-size: cover;">
+    <div class="jumbotron" style="font-size: 15px;">
+        <h2>My Orders</h2>
+        <br />
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.DueDate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.RushOrder)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.comments)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.WOReport)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SummaryStatus)
+                </th>
+                <th></th>
+            </tr>
 
-</table>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DueDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.RushOrder)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.comments)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.WOReport)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SummaryStatus)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Details", "OrderDetails", new { id = item.WrkOrdID }, new { @class = "btn btn-primary" })
+                    </td>
+                </tr>
+            }
 
-<p>
-    @Html.ActionLink("Back to Client Home", "ClientHome2", new { id=Model.FirstOrDefault().ClientID })
-</p>
+        </table>
+        <br />
+            @Html.ActionLink("Create New Order", "CreateOrder", new { id = Model.FirstOrDefault().ClientID }, new { @class = "btn btn-primary btn-lg" })
+        
+        
+            @Html.ActionLink("Back to Client Home", "ClientHome2", new { id = Model.FirstOrDefault().ClientID }, new { @class = "btn btn-primary btn-lg" })
+        
+    </div>
+</body>
+
+
