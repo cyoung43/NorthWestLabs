@@ -4,66 +4,74 @@
     ViewBag.Title = "OrderDetails";
 }
 
-<h2>OrderDetails</h2>
+<body style="background-image: url(../../Content/Images/hans-reniers-lQGJCMY5qcM-unsplash.jpg); background-size: cover;">
+    <div class="jumbotron" style="font-size: 15px;">
+        <h2>Order Details</h2>
+        <div>
+            <hr />
+            <fieldset style="width: 500px;">
+                <dl class="dl-horizontal">
+                    <dt>
+                        @Html.DisplayNameFor(model => model.ReceivedDate)
+                    </dt>
 
-<div>
-    <h4>WorkOrder</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.ReceivedDate)
-        </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.ReceivedDate)
+                    </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.ReceivedDate)
-        </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.DueDate)
+                    </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.DueDate)
-        </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.DueDate)
+                    </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.DueDate)
-        </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.RushOrder)
+                    </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.RushOrder)
-        </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.RushOrder)
+                    </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.RushOrder)
-        </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.comments)
+                    </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.comments)
-        </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.comments)
+                    </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.comments)
-        </dd>
 
-        
 
-        <dt>
-            @Html.DisplayNameFor(model => model.WOReport)
-        </dt>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.WOReport)
+                    </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.WOReport)
-        </dd>
+                    <dd>
+                        @Html.DisplayFor(model => model.WOReport)
+                    </dd>
 
-        
 
-        <dt>
-            @Html.DisplayNameFor(model => model.SummaryStatus)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.SummaryStatus)
-        </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.SummaryStatus)
+                    </dt>
 
-    </dl>
-</div>
-<p>
-    @Html.ActionLink("Back to List", "ViewOrders", new { id = Model.ClientID })
-</p>
+                    <dd>
+                        @Html.DisplayFor(model => model.SummaryStatus)
+                    </dd>
+
+                </dl>
+            </fieldset>
+        </div>
+        <br />
+        <p>
+            @Html.ActionLink("Back to List", "ViewOrders", new { id = Model.ClientID }, new { @class = "btn btn-primary btn-lg" })
+        </p>
+    </div>
+</body>
+
+
+

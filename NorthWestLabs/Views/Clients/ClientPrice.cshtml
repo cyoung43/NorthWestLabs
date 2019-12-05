@@ -4,7 +4,66 @@
     ViewBag.Title = "ClientPrice";
 }
 
-<h2>ClientPrice</h2>
 
-@Html.ActionLink("Back to Client Home", "ClientHome2", new { id = Model.ClientID })
+<head>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+</head>
 
+<body style="background-image: url(../../Content/Images/hans-reniers-lQGJCMY5qcM-unsplash.jpg); background-size: cover;">
+
+
+    <div class="jumbotron">
+        <h1>Northwest Pricing</h1>
+
+        <table class="table-striped">
+            <tr>
+                <th>Test</th>
+                <th>Description</th>
+                <th>Estimated Price</th>
+                <th>Days</th>
+            </tr>
+            <tr>
+                <td>Biochemical Pharmacology (BP)</td>
+                <td>Test for biochemical products.</td>
+                <td>$1200 - $1800</td>
+                <td>5 - 10 Days</td>
+            </tr>
+            <tr>
+                <td>Discovery Screen (DS)</td>
+                <td>Understand chemical reactions</td>
+                <td>$1000 - $1500</td>
+                <td>9 - 14 Days</td>
+            </tr>
+            <tr>
+                <td>ImmunoScreen (IS)</td>
+                <td>Discover immunities</td>
+                <td>$1800 - $2400</td>
+                <td>4 - 8 Days</td>
+            </tr>
+            <tr>
+                <td>Profiling Screen (PF)</td>
+                <td>Details all compouns</td>
+                <td>$1100 - $1600</td>
+                <td>3 - 6 Days</td>
+            </tr>
+            <tr>
+                <td>PharmaScreen (PS)</td>
+                <td>Indicates use in pharmecutical products.</td>
+                <td>$2000 - $2400</td>
+                <td>6 - 10 Days</td>
+            </tr>
+            <tr>
+                <td>Custom Screen (CS)</td>
+                <td>Add additional custom tests</td>
+                <td>$3000+ (varies)</td>
+                <td>10 - 12 Days</td>
+            </tr>
+        </table>
+        <br />
+        
+        <center>
+            @Html.ActionLink("Back to Client Home", "ClientHome2", new { id = Model.ClientID }, new { @class = "btn btn-primary btn-lg" })
+            <input value="Request Price Quote" type="button" class="btn btn-primary btn-lg" style="opacity: initial;" onclick="location.href='@Url.Action("AddQuote")'" />
+        </center>
+    </div>
+</body>

@@ -3,8 +3,15 @@
     ViewBag.Title = "Login";
 }
 
-<h2>Login</h2>
+<body style="background-image: url(../../Content/Images/hans-reniers-lQGJCMY5qcM-unsplash.jpg); background-size: 100%;">
 
-@Html.ActionLink("Employee Login", "EmpLogin")
-<br /><br />
-@Html.ActionLink("Client Login", "ClLogin")
+    <div class="jumbotron" >
+        <center>
+            <h1>Northwest Login</h1>
+            <hr />
+            <input value="Employee Login" class="btn btn-primary btn-lg btn-block" type="button" onclick="location.href='@Url.Action("EmpLogin")'" />
+
+            <input value="Client Login" class="btn btn-primary btn-lg btn-block" type="button" onclick="location.href='@Url.Action("ClLogin")'" />
+        </center>
+    </div>
+</body>

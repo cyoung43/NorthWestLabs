@@ -16,12 +16,12 @@ namespace NorthWestLabs.Models
         public int ClientID { get; set; }
 
         [Required]
-        [Display(Name = "Client First Name")]
+        [Display(Name = "First Name")]
         [StringLength(30)]
         public string ClFName { get; set; }
 
         [Required]
-        [Display(Name = "Client Last Name")]
+        [Display(Name = "Last Name")]
         [StringLength(50)]
         public string ClLName { get; set; }
 
@@ -41,18 +41,18 @@ namespace NorthWestLabs.Models
 
         [Required]
         [EmailAddress]
-        [Display(Name = "Client Email")]
+        [Display(Name = "Email")]
         [StringLength(60)]
         public string ClEmail { get; set; }
 
         //What does the phone validation do? What should we do to the database to confirm this?
         [Required]
         [Phone]
-        [Display(Name = "Client Phone Number")]
+        [Display(Name = "Phone Number")]
         [StringLength(15)]
         public string ClPhone { get; set; }
 
-        [Display(Name = "Bank Account Number")]
+        [Display(Name = "Bank Account #")]
         [StringLength(30)]
         public string BankAccouNum { get; set; }
 

@@ -3,25 +3,24 @@
     ViewBag.Title = "EmpLogin";
 }
 
-<h2>Employee Login</h2>
 
+<body style="background-image: url(../../Content/Images/hans-reniers-lQGJCMY5qcM-unsplash.jpg); background-size: cover;">
+    <div class="jumbotron">
+        <center>
+            <h1>Employee Login</h1>
+            <hr />
 
-@using (Html.BeginForm("EmpLogin", "Home", FormMethod.Post))
-{
-    <label for="inputEmail">Employee ID</label>
-    @Html.TextBox("Employee ID")
-    <br /><br />
-    <label for="inputPassword">Password</label>
-    @Html.Password("Password")
-    <br /><br />
-    <!--
-    <label for="inputLocation">Choose Location</label>
-    <select class="form-control" name="Location" required>
-        <option hidden="">Select Location</option>
-        <option value="1">Singapore</option>
-        <option value="2">Seattle</option>
-    </select>
-    -->
-    <br /><br />
-    <button type="submit">Login</button>
-}
+            @using (Html.BeginForm("EmpLogin", "Home", FormMethod.Post))
+            {
+                <label for="inputEmail">Employee ID</label><br />
+                @Html.TextBox("Employee ID")
+                <br />
+                <label for="inputPassword">Password</label><br />
+                @Html.Password("Password", new { @class = "form-control" })
+                <br /><br />
+                <button type="submit" class="btn btn-primary btn-lg ">Login</button>
+
+            }
+        </center>
+    </div>
+</body>
