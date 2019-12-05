@@ -4,6 +4,7 @@ using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
+using System.Net.Mail;
 using System.Web;
 using System.Web.Mvc;
 using NorthWestLabs.DAL;
@@ -123,6 +124,79 @@ namespace NorthWestLabs.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        public ActionResult SeeQuotes()
+        {
+            return View(ClientsController.Quotes);
+        }
+
+        [HttpGet]
+        public ActionResult AssignPrice(int? id)
+        {
+            AddQuote addQuote = ClientsController.Quotes.Find(x => x.QCode == id);
+
+            return View(addQuote);
+        }
+
+        [HttpPost]
+        public ActionResult AssignPrice(AddQuote addQuote)
+        {
+            var obj = ClientsController.Quotes.FirstOrDefault(x => x.QCode == addQuote.QCode);
+
+            if (obj != null)
+            {
+                obj.TotalPrice = addQuote.TotalPrice;
+                obj.DayNum = addQuote.DayNum;
+            }
+
+            return RedirectToAction("InformCustomer", addQuote);
+        }
+
+        public ActionResult InformCustomer(AddQuote finishedQuote)
+        {
+            string body = finishedQuote.FullName + ", <br><br>Thank you for your interest in Northwest Labs. Your requested price quote is an estimated $" + finishedQuote.TotalPrice + " " +
+                "based on your selected tests.<br><br> If you have further questions, please contact our Seattle office at 555-231-7589<br><br>Gary Anderson<br> Northwest Labs Singapore";
+
+            //set up email message
+            MailMessage mail = new MailMessage();
+            mail.To.Add(finishedQuote.Email);
+            mail.From = new MailAddress("northwestlabspricing@gmail.com");
+            mail.Subject = "Your Requested Quote";
+            mail.Body = body;
+            mail.IsBodyHtml = true;
+
+            //set up smtp client
+            SmtpClient smtp = new SmtpClient();
+            smtp.Host = "smtp.gmail.com";
+            smtp.Port = 587;
+            smtp.UseDefaultCredentials = false;
+            smtp.Credentials = new System.Net.NetworkCredential("northwestlabspricing", "Northwest01");
+            smtp.EnableSsl = true;
+            smtp.Send(mail);
+
+            ClientsController.Quotes.Remove(ClientsController.Quotes.FirstOrDefault(x => x.QCode == finishedQuote.QCode));
+            return RedirectToAction("CurrentQuotes", new { result = "Quote results sent."});
+        }
+
+        public ActionResult CurrentQuotes(string result)
+        {
+            ViewBag.Result = result;
+
+            int quoteCount = ClientsController.Quotes.Count();
+            string request;
+        
+            if (quoteCount > 1)
+            {
+                request = "requests";
+            }
+            else
+            {
+                request = "request";
+            }
+
+            ViewBag.Count = "You have " + quoteCount + " new quote " + request;
+            return View();
         }
     }
 }

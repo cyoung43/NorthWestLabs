@@ -124,5 +124,42 @@ namespace NorthWestLabs.Controllers
             }
             base.Dispose(disposing);
         }
+
+
+        /*
+        ///////////////////////////////////////////////
+        Quotes
+        //////////////////////////////////////////////    
+        */
+
+        public static List<AddQuote> Quotes = new List<AddQuote>();
+
+        [HttpGet]
+        public ActionResult AddQuote()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult AddQuote(AddQuote addQuote)
+        {
+            if (addQuote.FullName == null || addQuote.FullName == "")
+            {
+                ViewBag.Validations = "Please enter a name.";
+                return View(addQuote);
+            }
+            else if (addQuote.Email == null || addQuote.Email == "")
+            {
+                ViewBag.Email = "Please enter your email.";
+                return View(addQuote);
+            }
+            else
+            {
+                addQuote.QCode = Quotes.Count() + 1;
+                Quotes.Add(addQuote);
+                return RedirectToAction("About", "Home");
+            }
+            
+        }
     }
 }
