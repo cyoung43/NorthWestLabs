@@ -4,58 +4,66 @@
     ViewBag.Title = "EmployeeIndex";
 }
 
-<h2>EmployeeIndex</h2>
 
-<p>
-    @Html.ActionLink("Create New", "EmployeeCreate")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.EmpFName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.EmpLName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.EmpWage)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.EmpPassword)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.EmpType)
-        </th>
-        <th></th>
-    </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.EmpFName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.EmpLName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.EmpWage)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.EmpPassword)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.EmpType)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "EmployeeEdit", new { id=item.EmpID }) |
-            @Html.ActionLink("Details", "EmployeeDetails", new { id=item.EmpID }) |
-            @Html.ActionLink("Delete", "EmployeeDelete", new { id=item.EmpID })
-        </td>
-    </tr>
-}
+<body style="background-image: url(../../Content/Images/hans-reniers-lQGJCMY5qcM-unsplash.jpg); background-size: cover;">
+    <div class="jumbotron" style="font-size: 13px;">
+        <h2>All Employees</h2>
+        <br />
+        <p style="font-size: 15px;">
+            @Html.ActionLink("Create New Employee", "EmployeeCreate", null, new { @class = "btn btn-primary btn-lg" })
+        </p>
+        <br />
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.EmpFName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.EmpLName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.EmpWage)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.EmpPassword)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.EmpType)
+                </th>
+                <th></th>
+            </tr>
 
-</table>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.EmpFName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.EmpLName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.EmpWage)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.EmpPassword)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.EmpType)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "EmployeeEdit", new { id = item.EmpID }, new { @class = "btn btn-primary btn-sm" }) 
+                        @Html.ActionLink("Details", "EmployeeDetails", new { id = item.EmpID }, new { @class = "btn btn-primary btn-sm" }) 
+                        @Html.ActionLink("Delete", "EmployeeDelete", new { id = item.EmpID }, new { @class = "btn btn-primary btn-sm" })
+                    </td>
+                </tr>
+            }
 
-<p>
-    @Html.ActionLink("Return to Home", "SeattleHome")
-</p>
+        </table>
+        <br />
+        <p style="font-size: 15px;">
+            @Html.ActionLink("Return to Home", "SeattleHome", null, new { @class = "btn btn-primary btn-lg" })
+        </p>
+    </div>
+</body>

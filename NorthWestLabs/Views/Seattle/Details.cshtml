@@ -4,103 +4,109 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<body style="background-image: url(../../Content/Images/hans-reniers-lQGJCMY5qcM-unsplash.jpg); background-size: cover;">
+    <div class="jumbotron" style="font-size: 15px;">
+        <h2>Profile Details</h2>
+        <div>
+            <hr />
+            <fieldset style="width: 500px;">
+                <div>                    
+                    <dl class="dl-horizontal">
+                        <dt>
+                            @Html.DisplayNameFor(model => model.ClFName)
+                        </dt>
 
-<div>
-    <h4>Client</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.ClFName)
-        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.ClFName)
+                        </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.ClFName)
-        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.ClLName)
+                        </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.ClLName)
-        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.ClLName)
+                        </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.ClLName)
-        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.CompanyName)
+                        </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.CompanyName)
-        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.CompanyName)
+                        </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.CompanyName)
-        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.ClAddress1)
+                        </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.ClAddress1)
-        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.ClAddress1)
+                        </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.ClAddress1)
-        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.ClAddress2)
+                        </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.ClAddress2)
-        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.ClAddress2)
+                        </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.ClAddress2)
-        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.ClEmail)
+                        </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.ClEmail)
-        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.ClEmail)
+                        </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.ClEmail)
-        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.ClPhone)
+                        </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.ClPhone)
-        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.ClPhone)
+                        </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.ClPhone)
-        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.BankAccouNum)
+                        </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.BankAccouNum)
-        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.BankAccouNum)
+                        </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.BankAccouNum)
-        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.ClStatus)
+                        </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.ClStatus)
-        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.ClStatus)
+                        </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.ClStatus)
-        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.BankID)
+                        </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.BankID)
-        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.BankID)
+                        </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.BankID)
-        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.DisID)
+                        </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.DisID)
-        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.DisID)
+                        </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.DisID)
-        </dd>
-
-    </dl>
-</div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ClientID }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+                    </dl>
+                </div>
+            </fieldset>
+        </div>
+        <p>
+            @Html.ActionLink("Edit", "Edit", new { id = Model.ClientID }, new { @class = "btn btn-primary btn-lg" }) |
+            @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-primary btn-lg" })
+        </p>
+    </div>
+</body>
