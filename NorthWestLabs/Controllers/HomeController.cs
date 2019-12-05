@@ -81,11 +81,11 @@ namespace NorthWestLabs.Controllers
         {
             String empID = form["Employee ID"].ToString();
             String password = form["Password"].ToString();
-            String location = form["Location"].ToString();
+            //String location = form["Location"].ToString();
 
             var currentUser =
                 db.Database.SqlQuery<Employee>(
-            "Select * " +
+            "SELECT * " +
             "FROM Employees " +
             "WHERE EmpID = '" + empID + "' AND " +
             "EmpPassword = '" + password + "'");
@@ -94,11 +94,18 @@ namespace NorthWestLabs.Controllers
             {
                 FormsAuthentication.SetAuthCookie(empID, rememberMe);
 
-                if (location == "1")
+                IEnumerable<Employee> UserLoc =
+                    db.Database.SqlQuery<Employee>(
+                "SELECT * " +
+                "FROM Employees " +
+                "WHERE EmpID = '" + empID + "' AND " +
+                "EmpPassword = '" + password + "'");
+
+                if (UserLoc.FirstOrDefault().EmpType == 2)
                 {
-                    return RedirectToAction("Index", "Singapore");
+                    return RedirectToAction("SingaporeHome", "Singapore");
                 }
-                else if (location == "2")
+                else if (UserLoc.FirstOrDefault().EmpType == 1)
                 {
                     return RedirectToAction("SeattleHome", "Seattle");
                 }
