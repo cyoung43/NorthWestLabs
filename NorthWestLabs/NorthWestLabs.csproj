@@ -100,9 +100,13 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Images\alex-kondratiev-H9t723yPjYI-unsplash.jpg" />
+    <Content Include="Content\Images\bonnie.jpg" />
+    <Content Include="Content\Images\dallin.jpg" />
+    <Content Include="Content\Images\gary.jpg" />
     <Content Include="Content\Images\greg-anderson.jpg" />
     <Content Include="Content\Images\hans-reniers-lQGJCMY5qcM-unsplash.jpg" />
     <Content Include="Content\Images\louis-reed-pwcKF7L4-no-unsplash.jpg" />
+    <Content Include="Content\Images\mason.jpg" />
     <Content Include="Content\Images\nasa-Q1p7bh3SHj8-unsplash.jpg" />
     <Content Include="Content\Images\nw.png" />
     <Content Include="Content\Site.css" />
