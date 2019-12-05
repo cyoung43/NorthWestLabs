@@ -128,6 +128,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\AddQuote.cs" />
     <Compile Include="Models\Assay.cs" />
     <Compile Include="Models\Assay_Has_TestType.cs" />
     <Compile Include="Models\Bank.cs" />
@@ -182,6 +183,10 @@
     <Content Include="Views\Home\ViewClients.cshtml" />
     <Content Include="Views\Home\CreateEmployee.cshtml" />
     <Content Include="Views\Home\EmpLogin.cshtml" />
+    <Content Include="Views\Clients\AddQuote.cshtml" />
+    <Content Include="Views\Singapore\SeeQuotes.cshtml" />
+    <Content Include="Views\Singapore\AssignPrice.cshtml" />
+    <Content Include="Views\Singapore\CurrentQuotes.cshtml" />
     <Content Include="Views\Clients\ClientHome.cshtml" />
     <Content Include="Views\Clients\ViewProfile.cshtml" />
     <Content Include="Views\Clients\EditProfile.cshtml" />
