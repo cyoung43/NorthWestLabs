@@ -419,6 +419,11 @@ namespace NorthWestLabs.Controllers
             return RedirectToAction("EmployeeIndex");
         }
 
+        public ActionResult SeeQuotes()
+        {
+            return View(ClientsController.Quotes);
+        }
+
 
         protected override void Dispose(bool disposing)
         {

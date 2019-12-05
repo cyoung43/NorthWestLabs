@@ -3,7 +3,45 @@
     ViewBag.Title = "SingaporeHome";
 }
 
-<h2>Singapore Home</h2>
 
-<p>@Html.ActionLink("Check Quote Requests", "CurrentQuotes")</p>
-<p>@Html.ActionLink("See Work Orders", "ListWorkOrders")</p>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+<body>
+    <!-- Page content -->
+    <div class="w3-content w3-padding" style="max-width:1564px">
+
+
+        <!-- Header -->
+        <header class="w3-display-container w3-content w3-wide" style="max-width:1500px;" id="home">
+            <img class="w3-image" src="~/Content/Images/Singapore-Unsplash.jpg" alt="Architecture" width="1500" height="800">
+            <div class="w3-display-middle w3-margin-top w3-center">
+                <h1 class="w3-xxlarge w3-text-white"><span class="w3-padding w3-black w3-opacity-min"><b>Singapore</b></span> <span class="w3-hide-small w3-text-light-grey">Employees</span></h1>
+            </div>
+        </header>
+
+
+        <div class="w3-row-padding w3-grayscale" style="text-align: center;">
+            <div class="w3-col l3 m6 w3-margin-bottom">
+                
+            </div>
+            <div class="w3-col l3 m6 w3-margin-bottom">
+                <h3>Work Orders</h3>
+                <img src="~/Content/Images/WorkOrder-Unsplash (2).jpg" alt="Work Order Picture" style="width:100%">
+                <br /><br />
+                <p><input value="View Work Orders" type="button" class="w3-button w3-light-grey w3-block" onclick="location.href='@Url.Action("ListWorkOrder")'" /></p>
+            </div>
+            <div class="w3-col l3 m6 w3-margin-bottom">
+                <h3>Quotes</h3>
+                <img src="~/Content/Images/Quotes-unsplash.jpg" alt="Quotes Picture" style="width:100%">
+                <br /><br />
+                <p><input value="View Quotes" type="button" class="w3-button w3-light-grey w3-block" onclick="location.href='@Url.Action("CurrentQuotes")'" /></p>
+            </div>
+            <div class="w3-col l3 m6 w3-margin-bottom">
+                
+            </div>
+
+
+        </div>
+    </div>
+</body>
