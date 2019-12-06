@@ -20,7 +20,10 @@
                 <th>
                     @Html.DisplayNameFor(model => model.FullName)
                 </th>
-                
+                <th>
+                    @Html.DisplayNameFor(model => model.TotalPrice)
+                </th>
+
                 <th>
                     @Html.DisplayNameFor(model => model.Custom)
                 </th>
@@ -42,7 +45,9 @@
                     <td>
                         @Html.DisplayFor(modelItem => item.FullName)
                     </td>
-                    
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TotalPrice)
+                    </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.Custom)
                     </td>

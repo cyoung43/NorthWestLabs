@@ -22,11 +22,13 @@ namespace NorthWestLabs.Controllers
             return View();
         }
 
+        //view to see link for quotes
         public ActionResult SeeQuotes()
         {
             return View(HomeController.Quotes);
         }
 
+        //pull up quote
         [HttpGet]
         public ActionResult AssignPrice(int? id)
         {
@@ -35,6 +37,7 @@ namespace NorthWestLabs.Controllers
             return View(addQuote);
         }
 
+        //assign price for quote
         [HttpPost]
         public ActionResult AssignPrice(AddQuote addQuote)
         {
@@ -55,10 +58,15 @@ namespace NorthWestLabs.Controllers
             return RedirectToAction("InformCustomer", addQuote);
         }
 
+        //for simplicity purposes we used lists instead of a table in the db
+        public static List<AddQuote> SeattleQuoteView = new List<AddQuote>();
+
+        //Send email for requested quote
         public ActionResult InformCustomer(AddQuote finishedQuote)
         {
             string body = finishedQuote.FullName + ", <br><br>Thank you for your interest in Northwest Labs. Your requested price quote is an estimated $" + finishedQuote.TotalPrice + " " +
-                "based on your selected tests.<br><br> If you have further questions, please contact our Seattle office at 555-231-7589<br><br>Gary Anderson<br> Northwest Labs Singapore";
+                "based on your selected tests." + "The estimated number of days is " +  finishedQuote.DayNum + 
+                ".<br><br> If you have further questions, please contact our Seattle office at 555-231-7589<br><br>Gary Anderson<br> Northwest Labs Singapore";
 
             //set up email message
             MailMessage mail = new MailMessage();
@@ -77,10 +85,12 @@ namespace NorthWestLabs.Controllers
             smtp.EnableSsl = true;
             smtp.Send(mail);
 
+            SeattleQuoteView.Add(finishedQuote);
             HomeController.Quotes.Remove(HomeController.Quotes.FirstOrDefault(x => x.QCode == finishedQuote.QCode));
             return RedirectToAction("CurrentQuotes", new { result = "Quote results sent."});
         }
 
+        //see number of how many quotes
         public ActionResult CurrentQuotes(string result)
         {
             ViewBag.Result = result;
@@ -101,6 +111,7 @@ namespace NorthWestLabs.Controllers
             return View();
         }
 
+        //see work orders
         public ActionResult ListWorkOrder()
         {
             ViewBag.Clients = db.Clients.ToList();

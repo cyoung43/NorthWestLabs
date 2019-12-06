@@ -159,8 +159,10 @@ namespace NorthWestLabs.Controllers
         //////////////////////////////////////////////    
         */
 
+            //set up quotes list
         public static List<AddQuote> Quotes = new List<AddQuote>();
 
+        //customer can get quotes here
         [HttpGet]
         public ActionResult AddQuote()
         {
@@ -170,6 +172,7 @@ namespace NorthWestLabs.Controllers
         [HttpPost]
         public ActionResult AddQuote(AddQuote addQuote)
         {
+            //validations
             if (addQuote.FullName == null || addQuote.FullName == "")
             {
                 ViewBag.Validations = "Please enter a name.";
@@ -189,6 +192,7 @@ namespace NorthWestLabs.Controllers
 
         }
 
+        //thanks view for submitting quote
         public ActionResult Thanks(AddQuote addQuote)
         {
             ViewBag.Thanks = "Thank you, " + addQuote.FullName + ", for your interest in Northwest Labs.<br/><br/>" +
