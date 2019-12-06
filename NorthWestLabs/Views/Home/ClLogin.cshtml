@@ -12,6 +12,7 @@
 
             @using (Html.BeginForm("ClLogin", "Home", FormMethod.Post))
             {
+                <p class="text-danger">@ViewBag.Valid</p>
                 <label for="inputEmail">Email address</label><br />
                 @Html.TextBox("Email address")
                 <br />

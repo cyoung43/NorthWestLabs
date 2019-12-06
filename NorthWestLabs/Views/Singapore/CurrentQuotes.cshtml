@@ -10,5 +10,6 @@
         <p>@ViewBag.Count</p>
         <br />
         <input type="button" value="See Requests" onclick="location.href='@Url.Action("SeeQuotes")'" class="btn btn-primary btn-lg"/>
+        @Html.ActionLink("Back to Home", "SingaporeHome", null, new { @class="btn btn-primary btn-lg"})
     </div>
 </body>

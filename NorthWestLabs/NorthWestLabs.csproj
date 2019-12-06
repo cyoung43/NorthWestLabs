@@ -117,6 +117,7 @@
     <Content Include="Content\Images\Seattle-unsplash.jpg" />
     <Content Include="Content\Images\Singapore-Unsplash.jpg" />
     <Content Include="Content\Images\WorkOrder-Unsplash %282%29.jpg" />
+    <Content Include="Content\Images\nastuh-abootalebi-yWwob8kwOCk-unsplash.jpg" />
     <Content Include="Content\Site.css" />
     <Content Include="Content\Styles\Styles.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -205,13 +206,13 @@
     <Content Include="Views\Clients\OrderDetails.cshtml" />
     <Content Include="Views\Clients\CreateOrder.cshtml" />
     <Content Include="Views\Singapore\ListWorkOrder.cshtml" />
-    <Content Include="Views\Singapore\EditWorkOrder.cshtml" />
     <Content Include="Views\Singapore\WorkOrderDetails.cshtml" />
     <Content Include="Views\Singapore\SingaporeHome.cshtml" />
     <Content Include="Views\Clients\ClientPrice.cshtml" />
     <Content Include="Views\Home\Login.cshtml" />
     <Content Include="Views\Seattle\SeeQuotes.cshtml" />
     <Content Include="Views\Home\Thanks.cshtml" />
+    <Content Include="Views\Singapore\EditWorkOrder.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -7,6 +7,9 @@
     <div class="jumbotron">
         <h2>Thank you!</h2>
         @Html.Raw(ViewBag.Thanks)
-    </div>
+        <br />
+        @Html.ActionLink("Back to Home", "Index", null, new { @class = "btn btn-primary btn-lg" })
+    </div> 
+    
 </body>
 

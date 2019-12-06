@@ -38,6 +38,12 @@ namespace NorthWestLabs.Controllers
         [HttpPost]
         public ActionResult AssignPrice(AddQuote addQuote)
         {
+            if (addQuote.TotalPrice == 0)
+            {
+                ViewBag.TotalPrice = "Please enter the estimated price.";
+                return View(addQuote);
+            }
+
             var obj = HomeController.Quotes.FirstOrDefault(x => x.QCode == addQuote.QCode);
 
             if (obj != null)
@@ -104,6 +110,7 @@ namespace NorthWestLabs.Controllers
             return View(db.WorkOrders.ToList());
         }
 
+        [HttpGet]
         public ActionResult EditWorkOrder(int? id)
         {
             ViewBag.Clients = db.Clients.ToList();
@@ -127,13 +134,13 @@ namespace NorthWestLabs.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult WorkOrderEdit([Bind(Include = "WrkOrdID,ReceivedDate,DueDate,RushedOrder,Comments,WOReport,ReceivedBy,ClientID,SummaryStatus")] WorkOrder workOrder)
+        public ActionResult EditWorkOrder([Bind(Include = "WrkOrdID,ReceivedDate,DueDate,RushedOrder,Comments,WOReport,ReceivedBy,ClientID,SummaryStatus")] WorkOrder workOrder)
         {
             ViewBag.Clients = db.Clients.ToList();
             ViewBag.Summary = SeattleController.testStatus;
             ViewBag.Employees = db.Employees.ToList();
 
-            if (ModelState.IsValid)
+            if (workOrder.ReceivedDate != null)
             {
                 db.Entry(workOrder).State = EntityState.Modified;
                 db.SaveChanges();

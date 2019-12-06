@@ -21,7 +21,7 @@ namespace NorthWestLabs.Models
         [DataType("Date")]
         public DateTime ReceivedDate { get; set; }
 
-        [Required]
+        
         [Display(Name ="Date Due")]
         [DataType("Date")]
         public DateTime DueDate { get; set; }
@@ -45,7 +45,7 @@ namespace NorthWestLabs.Models
         [Display(Name ="Client ID")]
         public int ClientID { get; set; }
 
-        [DisplayName("Summary Status of Work Order")]
+        [DisplayName("Current Status")]
         public string SummaryStatus { get; set; }
     }
 }
