@@ -71,6 +71,7 @@ namespace NorthWestLabs.Controllers
             }
             else
             {
+                ViewBag.Valid = "Invalid Credentials";
                 return View();
             }
         }
@@ -116,6 +117,7 @@ namespace NorthWestLabs.Controllers
                 }
                 else
                 {
+                    ViewBag.Valid = "Invalid Credentials";
                     return View();
                 }
 

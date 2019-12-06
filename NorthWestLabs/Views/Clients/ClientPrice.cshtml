@@ -12,7 +12,7 @@
 <body style="background-image: url(../../Content/Images/hans-reniers-lQGJCMY5qcM-unsplash.jpg); background-size: cover;">
 
 
-    <div class="jumbotron">
+    <div class="jumbotron" style="font-size: 20px;">
         <h1>Northwest Pricing</h1>
 
         <table class="table-striped">
@@ -63,7 +63,7 @@
         
         <center>
             @Html.ActionLink("Back to Client Home", "ClientHome2", new { id = Model.ClientID }, new { @class = "btn btn-primary btn-lg" })
-            <input value="Request Price Quote" type="button" class="btn btn-primary btn-lg" style="opacity: initial;" onclick="location.href='@Url.Action("AddQuote")'" />
+            <input value="Request Price Quote" type="button" class="btn btn-primary btn-lg" style="opacity: initial;" onclick="location.href='@Url.Action("AddQuote", "Home")'" />
         </center>
     </div>
 </body>

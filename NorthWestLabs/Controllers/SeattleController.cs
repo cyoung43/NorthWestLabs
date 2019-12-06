@@ -421,7 +421,7 @@ namespace NorthWestLabs.Controllers
 
         public ActionResult SeeQuotes()
         {
-            return View(ClientsController.Quotes);
+            return View(HomeController.Quotes);
         }
 
 

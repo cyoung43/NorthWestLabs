@@ -12,11 +12,12 @@
 
             @using (Html.BeginForm("EmpLogin", "Home", FormMethod.Post))
             {
+                <p class="text-danger">@ViewBag.Valid</p>
                 <label for="inputEmail">Employee ID</label><br />
                 @Html.TextBox("Employee ID")
                 <br />
                 <label for="inputPassword">Password</label><br />
-                @Html.Password("Password", new { @class = "form-control" })
+                @Html.Password("Password")
                 <br /><br />
                 <button type="submit" class="btn btn-primary btn-lg ">Login</button>
 
