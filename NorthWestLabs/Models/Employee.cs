@@ -16,26 +16,26 @@ namespace NorthWestLabs.Models
         public int EmpID { get; set; }
 
         [Required]
-        [Display(Name = "Employee First Name")]
+        [Display(Name = "First Name")]
         public string EmpFName { get; set; }
 
         [Required]
-        [Display(Name = "Employee Last Name")]
+        [Display(Name = "Last Name")]
         public string EmpLName { get; set; }
 
         [Required]
-        [Display(Name = "Employee Wage")]
+        [Display(Name = "Wage")]
         public double EmpWage { get; set; }
 
         [Required]
-        [DisplayName("Employee Password")]
+        [DisplayName("Password")]
         [StringLength(15)]
         [PasswordPropertyText]
         public string EmpPassword { get; set; }
 
         //Employee type
         [Required]
-        [Display(Name="Employee Type")]
+        [Display(Name="Type")]
         public int EmpType { get; set; }
     }
 }

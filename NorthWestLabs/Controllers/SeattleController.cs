@@ -291,7 +291,7 @@ namespace NorthWestLabs.Controllers
         }
 
         // POST: Seattle/Delete/5
-        [HttpPost, ActionName("Delete")]
+        [HttpPost, ActionName("WorkOrderDelete")]
         [ValidateAntiForgeryToken]
         public ActionResult WorkOrderDeleteConfirmed(int id)
         {
@@ -409,7 +409,7 @@ namespace NorthWestLabs.Controllers
         }
 
         // POST: Seattle/Delete/5
-        [HttpPost, ActionName("Delete")]
+        [HttpPost, ActionName("EmployeeDelete")]
         [ValidateAntiForgeryToken]
         public ActionResult EmployeeDeleteConfirmed(int id)
         {
@@ -421,7 +421,7 @@ namespace NorthWestLabs.Controllers
 
         public ActionResult SeeQuotes()
         {
-            return View(ClientsController.Quotes);
+            return View(HomeController.Quotes);
         }
 
 

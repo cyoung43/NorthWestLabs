@@ -9,9 +9,7 @@
     <div class="jumbotron" style="font-size: 13px;">
         <h2>All Clients</h2>
         <br />
-        <p style="font-size: 15px;">
-            @Html.ActionLink("Create New Client", "Create", null, new { @class = "btn btn-primary btn-lg" })
-        </p>
+
         <br />
         <table class="table">
             <tr>
@@ -88,8 +86,8 @@
                         @Html.DisplayFor(modelItem => item.DisID)
                     </td>
                     <td>
-                        @Html.ActionLink("Edit", "Edit", new { id = item.ClientID }, new { @class = "btn btn-primary btn-sm" }) 
-                        @Html.ActionLink("Details", "Details", new { id = item.ClientID }, new { @class = "btn btn-primary btn-sm" }) 
+                        @Html.ActionLink("Edit", "Edit", new { id = item.ClientID }, new { @class = "btn btn-primary btn-sm" })
+                        @Html.ActionLink("Details", "Details", new { id = item.ClientID }, new { @class = "btn btn-primary btn-sm" })
                         @Html.ActionLink("Delete", "Delete", new { id = item.ClientID }, new { @class = "btn btn-primary btn-sm" })
                     </td>
                 </tr>
@@ -98,7 +96,9 @@
         </table>
         <br />
         <p style="font-size: 15px;">
-            @Html.ActionLink("Return to Home", "SeattleHome", null, new { @class = "btn btn-primary btn-lg" })
+            @Html.ActionLink("Return to Home", "SeattleHome", null, new { @class = "btn btn-primary btn-lg" })        
+            @Html.ActionLink("Create New Client", "Create", null, new { @class = "btn btn-primary btn-lg" })
+        
         </p>
     </div>
 </body>

@@ -57,9 +57,10 @@
                 </div>
             </fieldset>
         </div>
+        <br />
         <p>
-            @Html.ActionLink("Edit", "EmployeeEdit", new { id = Model.EmpID }) |
-            @Html.ActionLink("Back to List", "EmployeeIndex")
+            @Html.ActionLink("Edit", "EmployeeEdit", new { id = Model.EmpID }, new { @class = "btn btn-primary btn-lg" }) 
+            @Html.ActionLink("Back to List", "EmployeeIndex", null, new { @class = "btn btn-primary btn-lg" })
         </p>
         
     </div>

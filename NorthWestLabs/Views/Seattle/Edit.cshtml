@@ -7,7 +7,7 @@
 
 
 <body style="background-image: url(../../Content/Images/hans-reniers-lQGJCMY5qcM-unsplash.jpg); background-size: cover;">
-    <div class="jumbotron">
+    <div class="jumbotron" style="font-size: 15px;">
         <h1>Edit Client Profile</h1>
         <br />
         @using (Html.BeginForm())
@@ -15,8 +15,7 @@
             @Html.AntiForgeryToken()
 
             <div class="form-horizontal">
-                <h4>Client</h4>
-                <hr />
+                
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                 @Html.HiddenFor(model => model.ClientID)
 
@@ -118,15 +117,13 @@
 
                 <div class="form-group">
                     <div class="col-md-offset-2 col-md-10">
-                        <input type="submit" value="Save" class="btn btn-default" />
+                        <input type="submit" value="Save" class="btn btn-primary btn-lg" />
+                        @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-primary btn-lg" })
                     </div>
                 </div>
             </div>
         }
 
-        <div>
-            @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-primary btn-lg" })
-        </div>
 
         <script src="~/Scripts/jquery-1.10.2.min.js"></script>
         <script src="~/Scripts/jquery.validate.min.js"></script>

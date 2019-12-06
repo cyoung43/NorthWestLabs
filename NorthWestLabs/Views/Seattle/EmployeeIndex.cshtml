@@ -9,11 +9,7 @@
 <body style="background-image: url(../../Content/Images/hans-reniers-lQGJCMY5qcM-unsplash.jpg); background-size: cover;">
     <div class="jumbotron" style="font-size: 13px;">
         <h2>All Employees</h2>
-        <br />
-        <p style="font-size: 15px;">
-            @Html.ActionLink("Create New Employee", "EmployeeCreate", null, new { @class = "btn btn-primary btn-lg" })
-        </p>
-        <br />
+        <br />        
         <table class="table">
             <tr>
                 <th>
@@ -64,6 +60,7 @@
         <br />
         <p style="font-size: 15px;">
             @Html.ActionLink("Return to Home", "SeattleHome", null, new { @class = "btn btn-primary btn-lg" })
+            @Html.ActionLink("Create New Employee", "EmployeeCreate", null, new { @class = "btn btn-primary btn-lg" })
         </p>
     </div>
 </body>

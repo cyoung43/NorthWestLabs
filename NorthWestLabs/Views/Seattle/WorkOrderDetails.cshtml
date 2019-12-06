@@ -73,9 +73,10 @@
                 </div>
             </fieldset>
         </div>
+        <br />
         <p>
-            @Html.ActionLink("Edit", "Edit", new { id = Model.WrkOrdID }) |
-            @Html.ActionLink("Back to List", "WorkIndex")
+            @Html.ActionLink("Edit", "Edit", new { id = Model.WrkOrdID }, new { @class = "btn btn-primary btn-lg" }) 
+            @Html.ActionLink("Back to List", "WorkIndex", null, new { @class = "btn btn-primary btn-lg" })
         </p>
     </div>
 </body>
